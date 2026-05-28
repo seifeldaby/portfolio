@@ -19,6 +19,15 @@
     --text: #F0EDE6;
     --text-muted: #8A8680;
   }
+ body.light {
+  --gold: #B8860B;
+  --dark: #F5F2EB;
+  --dark2: #EDE9DF;
+  --dark3: #E2DDD3;
+  --border: rgba(184,134,11,0.25);
+  --text: #1A1A1A;
+  --text-muted: #5A5650;
+}
   html { scroll-behavior: smooth; }
   body {
     font-family: 'DM Sans', sans-serif;
@@ -297,7 +306,19 @@
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Seif Eldaby</div>
-  <div class="nav-links">
+  <button onclick="document.body.classList.toggle('light')" style="
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--gold);
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+" id="themeBtn" onclick="this.textContent = document.body.classList.contains('light') ? '🌙 Dark' : '☀️ Light'">
+  🌙 Dark
+</button>
+ <div class="nav-links">
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
@@ -648,6 +669,11 @@
   <span>© 2026 Seif Eldaby</span>
   <span>Electrical & Electronics Engineer · Assiut University</span>
 </footer>
-
+<script>
+  const btn = document.getElementById('themeBtn');
+  btn.addEventListener('click', () => {
+    btn.textContent = document.body.classList.contains('light') ? '☀️ Light' : '🌙 Dark';
+  });
+</script>
 </body>
 </html>
