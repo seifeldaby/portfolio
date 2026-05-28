@@ -315,18 +315,6 @@
   letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s;
-" id="themeBtn" onclick="this.textContent = document.body.classList.contains('light') ? '🌙 Dark' : '☀️ Light'">
-  🌙 Dark
-</button>
- <div class="nav-links">
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
-
 <!-- HERO -->
 <div class="hero">
   <div class="hero-content">
@@ -343,7 +331,7 @@
   <div class="hero-photo">
     <div class="photo-frame">
       <!-- Replace src with your photo path if needed -->
-      <img src="assets/seif-photo.png" alt="Seif Eldaby" />
+      <img src="assets/seif-photo.png" alt="Seif Eldaby" id="profilePhoto" />
       <div class="photo-badge">
         <div class="badge-num">7th</div>
         <div class="badge-txt">Global · ICRA 2026</div>
@@ -663,6 +651,19 @@
     <a href="tel:+201551276259" class="contact-link">✆ +20 155 127 6259</a>
   </div>
   <p style="font-size: 0.8rem; color: var(--text-muted);">Based in Assiut, Egypt · Available for remote & on-site</p>
+ <div style="margin-top: 2.5rem;">
+  <button id="themeBtn" style="
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--gold);
+    padding: 10px 28px;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  ">🌙 Dark Mode</button>
+</div>
 </section>
 
 <footer>
@@ -671,8 +672,16 @@
 </footer>
 <script>
   const btn = document.getElementById('themeBtn');
+  const photo = document.getElementById('profilePhoto');
+
   btn.addEventListener('click', () => {
-    btn.textContent = document.body.classList.contains('light') ? '☀️ Light' : '🌙 Dark';
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    btn.textContent = isLight ? '☀️ Light Mode' : '🌙 Dark Mode';
+    photo.src = isLight ? 'assets/seif-photo-light.png' : 'assets/seif-photo.png';
+    document.documentElement.style.setProperty(
+      '--gold', isLight ? '#8B6914' : '#C9A84C'
+    );
   });
 </script>
 </body>
