@@ -50,14 +50,14 @@
   }
   #loader.hide { opacity: 0; visibility: hidden; }
   .loader-name {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 900;
-    color: var(--gold);
+    color: #C9A84C;
     letter-spacing: 4px;
     opacity: 0;
     transform: translateY(20px);
-    animation: loaderReveal 0.8s var(--transition) 0.3s forwards;
+    animation: loaderReveal 0.8s ease 0.3s forwards;
   }
   .loader-sub {
     font-size: 0.75rem;
@@ -66,7 +66,7 @@
     color: #8A8680;
     margin-top: 0.8rem;
     opacity: 0;
-    animation: loaderReveal 0.8s var(--transition) 0.6s forwards;
+    animation: loaderReveal 0.8s ease 0.6s forwards;
   }
   .loader-bar {
     width: 120px; height: 1px;
@@ -960,12 +960,16 @@
 
 <script>
   // ── LOADER ──
-  window.addEventListener('load', () => {
+ window.addEventListener('load', () => {
     setTimeout(() => {
       document.getElementById('loader').classList.add('hide');
     }, 1800);
   });
 
+  // Fallback لو الـ fonts اتأخرت
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+  }, 3000);
   // ── TYPING EFFECT ──
   const phrases = ['EE Engineer & Builder', 'PCB Designer', 'Autonomous Systems Dev', 'Technical Instructor'];
   let phraseIndex = 0, charIndex = 0, deleting = false;
