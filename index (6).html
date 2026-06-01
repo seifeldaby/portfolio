@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seif Eldaby — Portfolio</title>
+<meta name="description" content="Seif Eldaby — Electrical & Electronics Engineer, Autonomous Systems, PCB Design, Assiut University">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D'/><text x='50' y='72' font-size='65' font-family='serif' font-weight='900' fill='%23C9A84C' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #C9A84C;
+  --dark: #0D0D0D;
+  --dark2: #141414;
+  --dark3: #1C1C1C;
+  --border: rgba(201,168,76,0.2);
+  --text: #F0EDE6;
+  --text-muted: #8A8680;
+  --nav-h: 64px;
+  --mob-nav-h: 56px;
+}
+body.light {
+  --gold: #8B6914;
+  --dark: #F5F2EB;
+  --dark2: #EDE9DF;
+  --dark3: #E2DDD3;
+  --border: rgba(139,105,20,0.25);
+  --text: #1A1A1A;
+  --text-muted: #5A5650;
+}
+body.light .section-num { color: rgba(107,79,10,0.35); }
+body.light .section-eyebrow { color: #6B4F0A; font-weight: 600; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.4s, color 0.4s;
+  padding-bottom: 0;
+}
+
+/* ── LOADER ── */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: #0D0D0D;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900; color: #C9A84C;
+  letter-spacing: 4px;
+  opacity: 0; transform: translateY(20px);
+  animation: loaderReveal 0.8s ease 0.3s forwards;
+}
+.loader-sub {
+  font-size: 0.75rem; letter-spacing: 4px;
+  text-transform: uppercase; color: #8A8680;
+  margin-top: 0.8rem; opacity: 0;
+  animation: loaderReveal 0.8s ease 0.6s forwards;
+}
+.loader-bar { width: 120px; height: 1px; background: rgba(201,168,76,0.2); margin-top: 2rem; overflow: hidden; }
+.loader-bar-fill { height: 100%; width: 0; background: #C9A84C; animation: loaderBar 1.8s ease 0.4s forwards; }
+@keyframes loaderReveal { to { opacity: 1; transform: translateY(0); } }
+@keyframes loaderBar { to { width: 100%; } }
+
+/* ── DESKTOP NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 4rem;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 0.5px solid var(--border);
+  transition: background 0.4s, border-color 0.4s;
+}
+body.light nav { background: rgba(245,242,235,0.92); }
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; color: var(--gold);
+  letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+}
+.nav-links { display: flex; gap: 2rem; align-items: center; }
+.nav-links button {
+  background: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s; position: relative; padding-bottom: 4px;
+}
+.nav-links button::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 0; height: 1px; background: var(--gold);
+  transition: width 0.3s ease;
+}
+.nav-links button.active { color: var(--gold); }
+.nav-links button.active::after { width: 100%; }
+.nav-links button:hover { color: var(--gold); }
+
+/* Dark/Light Switch */
+.theme-switch {
+  position: relative; width: 52px; height: 28px;
+  background: var(--dark3); border: 1px solid var(--border);
+  border-radius: 999px; cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+  flex-shrink: 0; margin-left: 0.5rem;
+}
+.theme-switch-thumb {
+  position: absolute; top: 3px; left: 3px;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; transition: transform 0.3s ease;
+}
+body.light .theme-switch-thumb { transform: translateX(24px); }
+
+/* ── MOBILE NAV (bottom) ── */
+.mob-nav {
+  display: none;
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  height: var(--mob-nav-h);
+  background: rgba(13,13,13,0.96);
+  backdrop-filter: blur(16px);
+  border-top: 0.5px solid var(--border);
+  align-items: center; justify-content: space-around;
+  transition: background 0.4s;
+}
+body.light .mob-nav { background: rgba(245,242,235,0.96); }
+.mob-nav button {
+  background: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.65rem; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--text-muted); padding: 8px 4px;
+  transition: color 0.2s; flex: 1; text-align: center;
+}
+.mob-nav button.active { color: var(--gold); }
+
+/* ── PAGES ── */
+.page { display: none; min-height: 100vh; }
+.page.active { display: block; }
+
+/* HOME padding */
+#page-home { padding-top: var(--nav-h); }
+
+/* Other pages */
+#page-about, #page-achievements, #page-portfolio, #page-contact {
+  padding-top: calc(var(--nav-h) + 2rem);
+  padding-bottom: 4rem;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  display: grid; grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 4rem 4rem 3rem;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.5rem; min-height: 1.2em;
+}
+.hero-tag::before { content: ''; width: 30px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.typing-cursor {
+  display: inline-block; width: 2px; height: 1em;
+  background: var(--gold); margin-left: 2px;
+  animation: blink 0.8s step-end infinite; vertical-align: middle;
+}
+@keyframes blink { 50% { opacity: 0; } }
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 900; line-height: 1.05;
+  color: var(--text); margin-bottom: 1.5rem;
+}
+h1 span { color: var(--gold); }
+.hero-bio {
+  font-size: 1rem; line-height: 1.8; color: var(--text-muted);
+  max-width: 480px; margin-bottom: 2.5rem;
+}
+.hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  padding: 0.85rem 2rem; background: var(--gold); color: var(--dark);
+  font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 600; border: none; cursor: pointer;
+  text-decoration: none; display: inline-block; transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.85; }
+.btn-outline {
+  padding: 0.85rem 2rem; background: transparent; color: var(--gold);
+  font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 500; border: 1px solid var(--border); cursor: pointer;
+  text-decoration: none; display: inline-block; transition: border-color 0.2s;
+}
+.btn-outline:hover { border-color: var(--gold); }
+
+/* PHOTO */
+.hero-photo { display: flex; justify-content: flex-end; align-items: center; position: relative; }
+.photo-frame { position: relative; width: 380px; height: 480px; }
+.photo-frame::before {
+  content: ''; position: absolute; top: -10px; right: -10px;
+  width: 100%; height: 100%; border: 1px solid var(--gold); opacity: 0.4;
+}
+.photo-frame::after {
+  content: ''; position: absolute; bottom: -10px; left: -10px;
+  width: 100%; height: 100%; border: 1px solid var(--gold); opacity: 0.15;
+}
+.photo-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block; position: relative; z-index: 1;
+  filter: grayscale(15%) contrast(1.05);
+  transition: opacity 0.5s ease;
+}
+.photo-badge {
+  position: absolute; bottom: 2rem; left: -2rem; z-index: 2;
+  background: var(--dark3); border: 1px solid var(--border);
+  padding: 0.8rem 1.2rem; min-width: 160px;
+}
+.photo-badge .badge-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--gold); font-weight: 700; }
+.photo-badge .badge-txt { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+/* STATS */
+.stats {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+.stat { padding: 2rem 4rem; border-right: 0.5px solid var(--border); }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold); font-weight: 700; }
+.stat-label { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 4px; }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ── SECTION COMMONS ── */
+.section-wrap { padding: 3rem 4rem; }
+.section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
+.section-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: rgba(201,168,76,0.1); font-weight: 900; line-height: 1; }
+.section-eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--text); font-weight: 700; }
+
+/* ── SERVICES ── */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+.service-card {
+  background: var(--dark); padding: 2.5rem 2rem;
+  position: relative; overflow: hidden;
+  transition: background 0.25s;
+}
+.service-card:hover { background: var(--dark3); }
+.service-card::before {
+  content: attr(data-num);
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900;
+  color: rgba(201,168,76,0.06); line-height: 1;
+}
+.service-icon { font-size: 1.8rem; margin-bottom: 1rem; color: var(--gold); }
+.service-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); font-weight: 700; margin-bottom: 0.5rem; }
+.service-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
+.service-coming { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); opacity: 0.7; }
+
+/* ── ABOUT ── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+
+/* Education */
+.edu-card {
+  border: 0.5px solid var(--border); padding: 2rem 2.5rem;
+  display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start;
+}
+.edu-degree { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text); font-weight: 700; margin-bottom: 0.4rem; }
+.edu-institution { font-size: 1rem; color: var(--gold); margin-bottom: 0.3rem; }
+.edu-detail { font-size: 0.85rem; color: var(--text-muted); }
+.edu-date { font-size: 0.75rem; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); text-align: right; }
+
+/* Experience */
+.exp-list { display: flex; flex-direction: column; }
+.exp-item {
+  display: grid; grid-template-columns: 180px 1fr;
+  border-bottom: 0.5px solid var(--border); padding: 1.5rem 0; gap: 1.5rem;
+}
+.exp-item:first-child { border-top: 0.5px solid var(--border); }
+.exp-date { font-size: 0.72rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+.exp-company { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+.exp-role { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); font-weight: 700; margin-bottom: 0.5rem; }
+.exp-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.8; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.7rem; }
+.tag { font-size: 0.68rem; letter-spacing: 1px; text-transform: uppercase; padding: 3px 9px; border: 0.5px solid var(--border); color: var(--text-muted); }
+
+/* Skills */
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 3rem; }
+.skill-cat-title { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid var(--border); }
+.skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-pill {
+  font-size: 0.78rem; padding: 5px 12px;
+  background: var(--dark3); color: var(--text-muted);
+  border: 0.5px solid var(--border); transition: all 0.2s;
+}
+.skill-pill:hover { border-color: var(--gold); color: var(--gold); }
+
+/* CV Button */
+.cv-btn-wrap { margin-top: 3rem; display: flex; justify-content: center; }
+.cv-card {
+  max-width: 480px; width: 100%;
+  border: 1px solid var(--border); padding: 1.5rem 2rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  background: var(--dark3); text-decoration: none;
+  transition: border-color 0.25s;
+}
+.cv-card:hover { border-color: var(--gold); }
+.cv-card-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.cv-card-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); font-weight: 700; }
+.cv-card-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+.cv-card-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; color: var(--gold); transition: background 0.2s;
+}
+.cv-card:hover .cv-card-icon { background: var(--gold); color: var(--dark); }
+
+/* ── ACHIEVEMENTS ── */
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 4rem; }
+.cert-card {
+  border: 0.5px solid var(--border); padding: 1.5rem;
+  background: var(--dark3); transition: border-color 0.2s, transform 0.2s;
+}
+.cert-card:hover { border-color: var(--gold); transform: translateY(-4px); }
+.cert-icon { font-size: 1.3rem; margin-bottom: 0.8rem; }
+.cert-name { font-size: 0.85rem; color: var(--text); font-weight: 600; margin-bottom: 0.3rem; line-height: 1.4; }
+.cert-issuer { font-size: 0.72rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.3rem; }
+.cert-date { font-size: 0.7rem; color: var(--text-muted); }
+.cert-link { font-size: 0.7rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); text-decoration: none; margin-top: 0.8rem; display: inline-block; opacity: 0.8; transition: opacity 0.2s; }
+.cert-link:hover { opacity: 1; }
+
+.awards-list { display: flex; flex-direction: column; }
+.award-item { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 0; border-bottom: 0.5px solid var(--border); }
+.award-item:first-child { border-top: 0.5px solid var(--border); }
+.award-icon { font-size: 1.2rem; color: var(--gold); margin-top: 2px; flex-shrink: 0; }
+.award-title { font-size: 1rem; color: var(--text); font-weight: 500; }
+.award-sub { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; line-height: 1.6; }
+
+/* ── PORTFOLIO ── */
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: 5rem; }
+.project-card {
+  background: var(--dark); padding: 2rem 1.8rem;
+  position: relative; overflow: hidden; transition: background 0.25s;
+}
+.project-card:hover { background: var(--dark3); }
+.project-card::before {
+  content: attr(data-num);
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900;
+  color: rgba(201,168,76,0.06); line-height: 1;
+}
+.project-icon { font-size: 1.5rem; margin-bottom: 1rem; color: var(--gold); }
+.project-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); font-weight: 700; margin-bottom: 0.5rem; }
+.project-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1rem; }
+.project-link {
+  font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--gold); text-decoration: none; opacity: 0.6;
+}
+.project-link:hover { opacity: 1; }
+
+/* Blog Cards */
+.blog-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+.blog-card {
+  background: var(--dark); padding: 2rem 1.8rem;
+  cursor: pointer; transition: background 0.25s;
+  display: flex; flex-direction: column;
+}
+.blog-card:hover { background: var(--dark3); }
+.blog-date { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.blog-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--text); font-weight: 700; margin-bottom: 0.6rem; line-height: 1.4; }
+.blog-excerpt { font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
+.blog-read { font-size: 0.72rem; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-top: 1.2rem; }
+
+/* Blog Article View */
+.blog-article {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: var(--dark); overflow-y: auto;
+  padding: calc(var(--nav-h) + 2rem) 0 4rem;
+}
+.blog-article.open { display: block; }
+.blog-article-inner { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+.blog-back {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--gold); cursor: pointer; background: none; border: none;
+  margin-bottom: 3rem; transition: opacity 0.2s; font-family: 'DM Sans', sans-serif;
+}
+.blog-back:hover { opacity: 0.7; }
+.blog-article-date { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.blog-article-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 4vw, 3rem); color: var(--text); font-weight: 900; line-height: 1.15; margin-bottom: 2rem; }
+.blog-article-divider { height: 1px; background: var(--border); margin-bottom: 2rem; }
+.blog-article-body { font-size: 1rem; color: var(--text-muted); line-height: 1.9; }
+.blog-article-body p { margin-bottom: 1.5rem; }
+.blog-coming-soon { text-align: center; padding: 4rem 2rem; }
+.blog-coming-soon p { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--text-muted); }
+.blog-coming-soon span { color: var(--gold); }
+
+/* ── CONTACT ── */
+.contact-hero { text-align: center; margin-bottom: 3rem; }
+.contact-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); color: var(--text); font-weight: 900; max-width: 600px; margin: 0 auto 0.8rem; line-height: 1.15; }
+.contact-title span { color: var(--gold); }
+.contact-sub { color: var(--text-muted); font-size: 0.95rem; }
+
+.contact-form {
+  max-width: 560px; margin: 0 auto 3rem;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); }
+.form-field input, .form-field textarea {
+  background: var(--dark3); border: 0.5px solid var(--border);
+  color: var(--text); padding: 0.8rem 1rem;
+  font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  outline: none; resize: none; transition: border-color 0.2s;
+}
+.form-field input:focus, .form-field textarea:focus { border-color: var(--gold); }
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--text-muted); }
+.form-submit {
+  background: var(--gold); color: var(--dark); border: none;
+  padding: 0.9rem 2rem; font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 600; cursor: pointer; transition: opacity 0.2s; align-self: flex-end;
+}
+.form-submit:hover { opacity: 0.85; }
+.form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.form-msg { font-size: 0.85rem; text-align: center; margin-top: 0.5rem; min-height: 1.2em; }
+.form-msg.success { color: #6fcf97; }
+
+.contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+.contact-link {
+  display: flex; align-items: center; gap: 8px;
+  padding: 0.7rem 1.4rem; border: 0.5px solid var(--border);
+  color: var(--text-muted); text-decoration: none; font-size: 0.82rem;
+  letter-spacing: 1px; text-transform: uppercase; transition: all 0.2s;
+}
+.contact-link:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  padding: 1.5rem 4rem;
+  border-top: 0.5px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.75rem; color: var(--text-muted);
+}
+
+/* ── BACK TO TOP ── */
+#backToTop {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 50;
+  width: 40px; height: 40px;
+  background: var(--dark3); border: 1px solid var(--border);
+  color: var(--gold); font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; visibility: hidden;
+  transition: all 0.3s; text-decoration: none;
+}
+#backToTop.show { opacity: 1; visibility: visible; }
+#backToTop:hover { background: var(--gold); color: var(--dark); }
+
+/* DIVIDER */
+.section-divider { height: 0.5px; background: var(--border); margin: 3rem 0; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--dark); }
+::-webkit-scrollbar-thumb { background: rgba(201,168,76,0.3); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .mob-nav { display: flex; }
+  body { padding-bottom: var(--mob-nav-h); }
+
+  #page-about, #page-achievements, #page-portfolio, #page-contact {
+    padding-top: calc(var(--nav-h) + 1rem);
+    padding-bottom: calc(var(--mob-nav-h) + 1rem);
+  }
+
+  .hero { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 2.5rem; min-height: auto; }
+  .hero-photo { justify-content: center; }
+  .photo-frame { width: 260px; height: 340px; }
+  .photo-badge { left: -0.5rem; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stat { padding: 1.5rem 1.5rem; }
+  .section-wrap { padding: 2rem 1.5rem; }
+  .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .exp-item { grid-template-columns: 1fr; gap: 0.3rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .certs-grid { grid-template-columns: repeat(2, 1fr); }
+  .form-row { grid-template-columns: 1fr; }
+  footer { padding: 1rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  #backToTop { bottom: calc(var(--mob-nav-h) + 1rem); }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-name">Seif Eldaby</div>
+  <div class="loader-sub">Electrical & Electronics Engineer</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- DESKTOP NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')">Seif Eldaby</div>
+  <div class="nav-links">
+    <button class="active" onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('services')">Services</button>
+    <button onclick="showPage('achievements')">Achievements</button>
+    <button onclick="showPage('portfolio')">Portfolio</button>
+    <button onclick="showPage('contact')">Contact</button>
+    <div class="theme-switch" id="themeSwitch" title="Toggle theme">
+      <div class="theme-switch-thumb" id="themeSwitchThumb">🌙</div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav">
+  <button class="active" onclick="showPage('home')">Home</button>
+  <button onclick="showPage('about')">About</button>
+  <button onclick="showPage('services')">Services</button>
+  <button onclick="showPage('achievements')">Achieve</button>
+  <button onclick="showPage('portfolio')">Portfolio</button>
+  <button onclick="showPage('contact')">Contact</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-tag"><span id="typingText"></span><span class="typing-cursor"></span></div>
+      <h1>Seif<br><span>Eldaby</span></h1>
+      <p class="hero-bio">Electrical & Electronics Engineering student at Assiut University — building autonomous systems, designing high-precision PCBs, and leading engineering teams. 7th globally at ICRA 2026 RoboRacer in the team's debut year.</p>
+      <div class="hero-cta">
+        <a href="mailto:seif123eldaby@gmail.com" class="btn-primary">Get In Touch</a>
+        <a href="https://linkedin.com/in/seif-eldaby" target="_blank" class="btn-outline">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame">
+        <img src="assets/seif-photo.png" alt="Seif Eldaby" id="profilePhoto" />
+        <div class="photo-badge">
+          <div class="badge-num">7th</div>
+          <div class="badge-txt">Global · ICRA 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat reveal reveal-delay-1"><div class="stat-num">90+</div><div class="stat-label">PCBs Assembled</div></div>
+    <div class="stat reveal reveal-delay-2"><div class="stat-num">7th</div><div class="stat-label">Global · ICRA 2026</div></div>
+    <div class="stat reveal reveal-delay-3"><div class="stat-num">4+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat reveal reveal-delay-4"><div class="stat-num">150+</div><div class="stat-label">Students Taught</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <!-- Education -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Academic</div>
+        <div class="section-title">Education</div>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <div class="edu-degree">Bachelor of Engineering</div>
+        <div class="edu-institution">Assiut University</div>
+        <div class="edu-detail">Electrical & Electronics Engineering</div>
+      </div>
+      <div class="edu-date">2024 – 2029<br>Assiut, Egypt</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Experience -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Career</div>
+        <div class="section-title">Experience</div>
+      </div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Dec 2025 – Present</div><div class="exp-company">Assiut Motorsport</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Autonomous Systems Engineer</div>
+          <div class="exp-desc">Achieved 7th place globally out of 73 international teams at RoboRacer Sim Racing League — ICRA 2026. Built full-stack autonomous vehicle software using ROS 2 and Docker. Implemented SLAM, Particle Filter, LiDAR, and rf2o odometry pipeline.</div>
+          <div class="exp-tags"><span class="tag">ROS 2</span><span class="tag">SLAM</span><span class="tag">LiDAR</span><span class="tag">Docker</span><span class="tag">Python</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Sep – Nov 2025</div><div class="exp-company">Assiut Motorsport</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Team Leader — Kickdown Competition</div>
+          <div class="exp-desc">Managed a multidisciplinary engineering team — assigned tasks, tracked milestones, and delivered presentations at internal reviews.</div>
+          <div class="exp-tags"><span class="tag">Leadership</span><span class="tag">Project Management</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Dec 2024 – Present</div><div class="exp-company">Astro</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Vice President & Head of Operations</div>
+          <div class="exp-desc">Oversee strategic planning and day-to-day operations. Previously served as SolidWorks Instructor, teaching CAD design and developing training materials.</div>
+          <div class="exp-tags"><span class="tag">Leadership</span><span class="tag">Strategy</span><span class="tag">SolidWorks</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Jan 2025 – Feb 2026</div><div class="exp-company">Magnum Egypt</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Curriculum Developer & Lead Instructor</div>
+          <div class="exp-desc">Developed and delivered technical curricula for Arduino and electronics courses to 20+ students per cohort. Designed hands-on labs and assessments.</div>
+          <div class="exp-tags"><span class="tag">Arduino</span><span class="tag">Curriculum Design</span><span class="tag">Teaching</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Aug 2022 – Feb 2026</div><div class="exp-company">Magnum Egypt</div></div>
+        <div class="exp-content">
+          <div class="exp-role">PCB Assembly & Repair Technician</div>
+          <div class="exp-desc">Assembled and soldered 90+ high-precision PCBs across multiple large-scale production projects. Diagnosed and repaired faulty electrical components.</div>
+          <div class="exp-tags"><span class="tag">PCB Assembly</span><span class="tag">Soldering</span><span class="tag">Troubleshooting</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">2021 – 2022</div><div class="exp-company">Idea Space</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Technical Support & Instructor Assistant</div>
+          <div class="exp-desc">Manufactured, soldered, and assembled PCBs. Co-supervised two national-level technical competitions. Assembled ~50 PCBs for project-based training programs.</div>
+          <div class="exp-tags"><span class="tag">PCB</span><span class="tag">Competitions</span><span class="tag">Mentoring</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Skills -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">03</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Toolkit</div>
+        <div class="section-title">Skills</div>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-title">Hardware & PCB</div>
+        <div class="skill-pills">
+          <span class="skill-pill">KiCAD</span><span class="skill-pill">Altium Designer</span>
+          <span class="skill-pill">EasyEDA</span><span class="skill-pill">PCB Assembly</span>
+          <span class="skill-pill">SMD Soldering</span><span class="skill-pill">Circuit Prototyping</span>
+          <span class="skill-pill">Arduino</span><span class="skill-pill">ESP32</span>
+          <span class="skill-pill">Electrical Troubleshooting</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-title">Software & Tools</div>
+        <div class="skill-pills">
+          <span class="skill-pill">ROS 2</span><span class="skill-pill">Docker</span>
+          <span class="skill-pill">Python</span><span class="skill-pill">C++</span>
+          <span class="skill-pill">MATLAB</span><span class="skill-pill">LTSpice</span>
+          <span class="skill-pill">SolidWorks</span><span class="skill-pill">AutoCAD</span>
+          <span class="skill-pill">Git</span><span class="skill-pill">OpenCV</span>
+          <span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-3">
+        <div class="skill-cat-title">Technical Domains</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Autonomous Systems</span><span class="skill-pill">SLAM & Localization</span>
+          <span class="skill-pill">Analog Circuit Design</span><span class="skill-pill">Power Electronics</span>
+          <span class="skill-pill">Computer Vision</span><span class="skill-pill">Schematic Design</span>
+          <span class="skill-pill">Embedded Systems</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-4">
+        <div class="skill-cat-title">Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Arabic — Native</span>
+          <span class="skill-pill">English — Professional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV -->
+  <div class="cv-btn-wrap">
+    <a href="assets/Seif_Eldaby_CV.pdf" download="Seif_Eldaby_CV.pdf" class="cv-card reveal">
+      <div>
+        <div class="cv-card-label">Download</div>
+        <div class="cv-card-title">Seif Eldaby — CV</div>
+        <div class="cv-card-sub">Full resume · PDF · Updated 2026</div>
+      </div>
+      <div class="cv-card-icon">↓</div>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: SERVICES
+══════════════════════════════════════ -->
+<div class="page" id="page-services">
+  <div style="min-height: calc(100vh - var(--nav-h)); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+    <div style="font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 900; color: var(--text); margin-bottom: 1rem;">Services</div>
+    <div style="width: 60px; height: 1px; background: var(--gold); margin: 0 auto 1.5rem;"></div>
+    <div style="font-size: 0.85rem; letter-spacing: 4px; text-transform: uppercase; color: var(--gold);">Coming Soon</div>
+  </div>
+  <footer>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: ACHIEVEMENTS
+══════════════════════════════════════ -->
+<div class="page" id="page-achievements">
+
+  <!-- Certifications -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Credentials</div>
+        <div class="section-title">Certifications</div>
+      </div>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-name">1st Place — Better Teacher Competition</div>
+        <div class="cert-issuer">Competition</div>
+        
+        <a href="https://drive.google.com/file/d/1-3kRoagcqFIFJXHvldSOf-L-DJDYHJAI/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-name">AI for Beginners</div>
+        <div class="cert-issuer">Almentor</div>
+        <div class="cert-date">Jun 2025</div>
+        <a href="https://drive.google.com/file/d/1C0xk8hATKwCBt-joMkAPpg_UKRcsIYRo/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-icon">💬</div>
+        <div class="cert-name">Basics of AI & ChatGPT Technology</div>
+        <div class="cert-issuer">Almentor</div>
+        <div class="cert-date">Jun 2025</div>
+        <a href="https://drive.google.com/file/d/1J8u1y1NkPEjtSlHNdh91TKHhTrxlWEIq/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-4">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">CSWA — SolidWorks CAD Design Associate</div>
+        <div class="cert-issuer">Dassault Systèmes</div>
+        <div class="cert-date">Aug 2025</div>
+        <a href="https://drive.google.com/file/d/1m8E7y5927w9Rv85QwETeh07sHw4vvXS1/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🔧</div>
+        <div class="cert-name">Professional PCB Designer with Altium</div>
+        <div class="cert-issuer">Udemy</div>
+        <div class="cert-date">Mar 2026</div>
+        <a href="https://drive.google.com/file/d/185LbyW8GRwxqurnG2SmToxTHDvJvuG5i/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-name">Digital Egypt Cubs Initiative — Level 2 Nanodegree</div>
+        <div class="cert-issuer">MCIT + Udacity</div>
+        <div class="cert-date">Oct 2023</div>
+        <a href="https://drive.google.com/file/d/1raFYWkILrGevCjHi71jdl6UlCdZqFYdL/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-icon">🏎️</div>
+        <div class="cert-name">ICRA 2026 RoboRacer Sim Racing League — Participation</div>
+        <div class="cert-issuer">ICRA 2026</div>
+        <div class="cert-date">2026</div>
+        <a href="https://drive.google.com/file/d/1QijNmlBold4RWhsX9_3n2HtpSG4mGQuS/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-4">
+        <div class="cert-icon">🧠</div>
+        <div class="cert-name">Machine Learning Program (40hrs)</div>
+        <div class="cert-issuer">EME / ITIDA</div>
+        
+        <a href="https://drive.google.com/file/d/1Pb1ASgGguh2BISkE-bhDBTgdKWMh2HL-/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🤖</div>
+        <div class="cert-name">Robotics Program (32hrs) — Appreciation</div>
+        <div class="cert-issuer">EME / ITIDA</div>
+        
+        <a href="https://drive.google.com/file/d/1VdXmkJsVnvF1YVgwU4lGlrnxHln_0cl-/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-icon">⚡</div>
+        <div class="cert-name">Arduino Workshop Completion</div>
+        <div class="cert-issuer">Amper</div>
+        
+        <a href="https://drive.google.com/file/d/1_Tjwy3aBblWy2yyqhuOZF0txkrx7jd5B/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-icon">🔌</div>
+        <div class="cert-name">Electronics Workshop Completion</div>
+        <div class="cert-issuer">Amper</div>
+        
+        <a href="https://drive.google.com/file/d/1h3SqC_DXxq2dSL8hQFh61ONot48bft6Y/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-4">
+        <div class="cert-icon">🏎️</div>
+        <div class="cert-name">Assiut Motorsport — Kickdown 2025 Participation</div>
+        <div class="cert-issuer">Assiut Motorsport</div>
+        <div class="cert-date">2025</div>
+        <a href="https://drive.google.com/file/d/11dnz2vqiBgpKTX2v1NMjuxZUaB7aCFE6/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">🎖️</div>
+        <div class="cert-name">AAKRUTI 2025 Innovation Competition</div>
+        <div class="cert-issuer">Dassault Systèmes / SolidWorks</div>
+        <div class="cert-date">2025</div>
+        <a href="https://drive.google.com/file/d/1gzOGlEGauKCBSq0jvNMq8Ou7LxNJxSXs/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-2">
+        <div class="cert-icon">🔌</div>
+        <div class="cert-name">PCB Design Workshop — EasyEDA / ESP32</div>
+        <div class="cert-issuer">IEEE PPU Student Branch</div>
+        <div class="cert-date">May 2026</div>
+        <a href="https://drive.google.com/file/d/1AKIhCb1SNEF0_YG2mTNhGaVdZDv6N6Dd/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-3">
+        <div class="cert-icon">🏅</div>
+        <div class="cert-name">DECI-GEEKS L2 Midyear Competition</div>
+        <div class="cert-issuer">MCIT + Microsoft</div>
+        <div class="cert-date">Feb 2023</div>
+        <a href="https://drive.google.com/file/d/1yc24oAmT4S-tTYP8IS4ckE34SiS46vir/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-4">
+        <div class="cert-icon">☁️</div>
+        <div class="cert-name">AWS Educate DECI Summer Program</div>
+        <div class="cert-issuer">AWS + MCIT</div>
+        <div class="cert-date">Jul 2023</div>
+        <a href="https://drive.google.com/file/d/1DZu0hriGx6DWoaZ3kQdfbt4cvJ20MYDq/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+      <div class="cert-card reveal reveal-delay-1">
+        <div class="cert-icon">📜</div>
+        <div class="cert-name">Technical Training Certificate</div>
+        <div class="cert-issuer">Seif Elden Mostafa</div>
+        
+        <a href="https://drive.google.com/file/d/1qGG4IVmsiNvOOGE2C2UyB08fSgvNJX01/view" target="_blank" class="cert-link">View Certificate ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Awards -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Recognition</div>
+        <div class="section-title">Awards & Honors</div>
+      </div>
+    </div>
+    <div class="awards-list">
+      <div class="award-item reveal"><div class="award-icon">🏆</div><div><div class="award-title">7th Place Globally — RoboRacer Sim Racing League, ICRA 2026</div><div class="award-sub">Assiut Motorsport Autonomous Team · 73 international teams · Debut year · 2026</div></div></div>
+      <div class="award-item reveal"><div class="award-icon">🎖️</div><div><div class="award-title">AAKRUTI Innovation Competition 2025</div><div class="award-sub">Dassault Systèmes / SolidWorks Worldwide Product Design Contest · 2025</div></div></div>
+      <div class="award-item reveal"><div class="award-icon">🏅</div><div><div class="award-title">DECI-GEEKS L2 Midyear Competition + Microsoft Ideation Camp</div><div class="award-sub">MCIT + Microsoft · February 2023</div></div></div>
+    </div>
+  </div>
+
+  <footer>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: PORTFOLIO
+══════════════════════════════════════ -->
+<div class="page" id="page-portfolio">
+
+  <!-- Projects -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Work</div>
+        <div class="section-title">Projects</div>
+      </div>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">⚡</div><div class="project-name">Autonomous Mapping & Localization</div><div class="project-desc">SLAM + Particle Filter + LiDAR odometry (rf2o) within ROS 2 / Docker. 7th globally at ICRA 2026 RoboRacer out of 73 teams.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+      <div class="project-card reveal reveal-delay-2" data-num="02"><div class="project-icon">🔌</div><div class="project-name">Custom ESP32 Development Board</div><div class="project-desc">Designed and manufactured a custom ESP32-based PCB from schematic to final board using EasyEDA — full SMD soldering.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+      <div class="project-card reveal reveal-delay-3" data-num="03"><div class="project-icon">💡</div><div class="project-name">AC 220V to LED Driver</div><div class="project-desc">Transformer-based linear LED driver with bridge rectifier and series-parallel LED topology. Simulated in LTSpice.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+      <div class="project-card reveal reveal-delay-1" data-num="04"><div class="project-icon">🧠</div><div class="project-name">Fashion-MNIST CNN Classifier</div><div class="project-desc">CNN in TensorFlow / Keras achieving ~91% test accuracy classifying 10 clothing categories. Built with OpenCV pipeline.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+      <div class="project-card reveal reveal-delay-2" data-num="05"><div class="project-icon">🏎️</div><div class="project-name">Formula Student — Engine Division</div><div class="project-desc">Contributed to Formula Student car development within the Engine Division at Assiut Motorsport.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+      <div class="project-card reveal reveal-delay-3" data-num="06"><div class="project-icon">🏭</div><div class="project-name">PCB Production at Magnum Egypt</div><div class="project-desc">Led assembly of 90+ high-precision PCBs including smart wall switches and embedded systems boards.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Blog -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Writing</div>
+        <div class="section-title">Blog</div>
+      </div>
+    </div>
+    <div class="blog-cards">
+      <div class="blog-card reveal reveal-delay-1" onclick="openBlog(0)">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">Building an Autonomous Racing Stack from Scratch with ROS 2</div>
+        <div class="blog-excerpt">How we went from zero to 7th globally at ICRA 2026 — architecture decisions, challenges, and lessons learned building a full autonomous vehicle pipeline.</div>
+        <div class="blog-read">Read Article →</div>
+      </div>
+      <div class="blog-card reveal reveal-delay-2" onclick="openBlog(1)">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">Designing Your First Custom ESP32 PCB with EasyEDA</div>
+        <div class="blog-excerpt">A practical walkthrough of schematic design, component selection, PCB routing, and SMD soldering for beginners moving beyond breakout boards.</div>
+        <div class="blog-read">Read Article →</div>
+      </div>
+      <div class="blog-card reveal reveal-delay-3" onclick="openBlog(2)">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">SLAM & Localization: A Practical Guide for Robotics Students</div>
+        <div class="blog-excerpt">Breaking down the math and implementation behind Particle Filter localization, LiDAR odometry, and mapping pipelines used in real autonomous systems.</div>
+        <div class="blog-read">Read Article →</div>
+      </div>
+    </div>
+
+  <!-- Blog Article Overlay -->
+  <div class="blog-article" id="blogArticle">
+    <div class="blog-article-inner">
+      <button class="blog-back" onclick="closeBlog()">← Back to Portfolio</button>
+      <div class="blog-article-date" id="articleDate"></div>
+      <div class="blog-article-title" id="articleTitle"></div>
+      <div class="blog-article-divider"></div>
+      <div class="blog-article-body" id="articleBody"></div>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="section-wrap">
+    <div class="contact-hero reveal">
+      <div class="contact-title">Let's Build Something <span>Extraordinary</span></div>
+      <p class="contact-sub">Open to opportunities, collaborations, and engineering challenges.</p>
+    </div>
+
+    <form class="contact-form reveal" id="contactForm">
+      <div class="form-row">
+        <div class="form-field"><label>Name</label><input type="text" id="formName" placeholder="Your name" required /></div>
+        <div class="form-field"><label>Email</label><input type="email" id="formEmail" placeholder="your@email.com" required /></div>
+      </div>
+      <div class="form-field"><label>Subject</label><input type="text" id="formSubject" placeholder="What's this about?" required /></div>
+      <div class="form-field"><label>Message</label><textarea id="formMessage" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea></div>
+      <button type="submit" class="form-submit" id="formSubmit">Send Message</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+
+    <div class="contact-links reveal">
+      <a href="mailto:seif123eldaby@gmail.com" class="contact-link">✉ Email</a>
+      <a href="https://linkedin.com/in/seif-eldaby" target="_blank" class="contact-link">in LinkedIn</a>
+      <a href="https://github.com/seifeldaby" target="_blank" class="contact-link">⌥ GitHub</a>
+      <a href="tel:+201551276259" class="contact-link">✆ +20 155 127 6259</a>
+    </div>
+    <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:1.5rem;" class="reveal">Based in Assiut, Egypt · Available for remote & on-site</p>
+  </div>
+
+  <footer>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑</a>
+
+<script>
+// ── LOADER ──
+setTimeout(() => { document.getElementById('loader').classList.add('hide'); }, 3500);
+
+// ── TYPING EFFECT ──
+const phrases = ['EE Engineer & Builder','PCB Designer','Autonomous Systems Dev','Technical Instructor'];
+let pi = 0, ci = 0, del = false;
+const tEl = document.getElementById('typingText');
+function type() {
+  const cur = phrases[pi];
+  if (!del) { tEl.textContent = cur.slice(0, ++ci); if (ci === cur.length) { del = true; setTimeout(type, 1800); return; } }
+  else { tEl.textContent = cur.slice(0, --ci); if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; } }
+  setTimeout(type, del ? 50 : 80);
+}
+setTimeout(type, 4000);
+
+// ── SPA NAVIGATION ──
+function showPage(name) {
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  // Show target
+  document.getElementById('page-' + name).classList.add('active');
+  // Update desktop nav
+  document.querySelectorAll('.nav-links button').forEach(b => {
+    const t = b.textContent.toLowerCase();
+    const match = (name === 'home' && t === 'home') ||
+                  (name === 'about' && t === 'about') ||
+                  (name === 'services' && t === 'services') ||
+                  (name === 'achievements' && t === 'achievements') ||
+                  (name === 'portfolio' && t === 'portfolio') ||
+                  (name === 'contact' && t === 'contact');
+    b.classList.toggle('active', match);
+  });
+  // Update mobile nav
+  document.querySelectorAll('.mob-nav button').forEach(b => {
+    const t = b.textContent.toLowerCase();
+    const match = t === name || (t === 'achieve' && name === 'achievements');
+    b.classList.toggle('active', match);
+  });
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Trigger reveal for new page
+  setTimeout(triggerReveal, 100);
+}
+
+// ── SCROLL REVEAL ──
+function triggerReveal() {
+  const els = document.querySelectorAll('.page.active .reveal:not(.visible)');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+}
+triggerReveal();
+window.addEventListener('scroll', triggerReveal);
+
+// ── THEME SWITCH ──
+const themeSwitch = document.getElementById('themeSwitch');
+const thumb = document.getElementById('themeSwitchThumb');
+const photo = document.getElementById('profilePhoto');
+themeSwitch.addEventListener('click', () => {
+  document.body.classList.toggle('light');
+  const isLight = document.body.classList.contains('light');
+  thumb.textContent = isLight ? '☀️' : '🌙';
+  document.documentElement.style.setProperty('--gold', isLight ? '#8B6914' : '#C9A84C');
+  if (photo) {
+    photo.style.opacity = '0';
+    setTimeout(() => { photo.src = isLight ? 'assets/seif-photo-light.png' : 'assets/seif-photo.png'; photo.style.opacity = '1'; }, 300);
+  }
+});
+
+// ── BLOG ──
+const blogData = [
+  {
+    date: 'Coming Soon',
+    title: 'Building an Autonomous Racing Stack from Scratch with ROS 2',
+    body: '<div class="blog-coming-soon"><p>This article is <span>coming soon.</span></p></div>'
+  },
+  {
+    date: 'Coming Soon',
+    title: 'Designing Your First Custom ESP32 PCB with EasyEDA',
+    body: '<div class="blog-coming-soon"><p>This article is <span>coming soon.</span></p></div>'
+  },
+  {
+    date: 'Coming Soon',
+    title: 'SLAM & Localization: A Practical Guide for Robotics Students',
+    body: '<div class="blog-coming-soon"><p>This article is <span>coming soon.</span></p></div>'
+  }
+];
+function openBlog(i) {
+  const art = document.getElementById('blogArticle');
+  document.getElementById('articleDate').textContent = blogData[i].date;
+  document.getElementById('articleTitle').textContent = blogData[i].title;
+  document.getElementById('articleBody').innerHTML = blogData[i].body;
+  art.classList.add('open');
+  art.scrollTop = 0;
+}
+function closeBlog() {
+  document.getElementById('blogArticle').classList.remove('open');
+}
+
+// ── BACK TO TOP ──
+const btt = document.getElementById('backToTop');
+window.addEventListener('scroll', () => { btt.classList.toggle('show', window.scrollY > 400); });
+
+// ── CONTACT FORM ──
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('formSubmit');
+  const msg = document.getElementById('formMsg');
+  const name = document.getElementById('formName').value;
+  const email = document.getElementById('formEmail').value;
+  const subject = document.getElementById('formSubject').value;
+  const message = document.getElementById('formMessage').value;
+  btn.disabled = true; btn.textContent = 'Sending...';
+  window.location.href = `mailto:seif123eldaby@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message)}`;
+  setTimeout(() => {
+    msg.textContent = '✓ Your email client has been opened. Thank you!';
+    msg.className = 'form-msg success';
+    btn.disabled = false; btn.textContent = 'Send Message';
+    this.reset();
+  }, 1000);
+});
+</script>
+</body>
+</html>
