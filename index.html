@@ -710,7 +710,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <h1>Seif<br><span>Eldaby</span></h1>
       <p class="hero-bio">Electrical & Electronics Engineering student at Assiut University — building autonomous systems, designing high-precision PCBs, and leading engineering teams. 7th globally at ICRA 2026 RoboRacer in the team's debut year.</p>
       <div class="hero-cta">
-        <a href="mailto:seif123eldaby@gmail.com" class="btn-primary">Get In Touch</a>
+        <a href="#contact" class="btn-primary">Get In Touch</a>
         <a href="https://linkedin.com/in/seif-eldaby" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn ↗</a>
       </div>
     </div>
@@ -1430,7 +1430,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     </form>
 
     <div class="contact-links reveal">
-      <a href="mailto:seif123eldaby@gmail.com" class="contact-link">✉ Email</a>
+      <a href="#" onclick="focusContactForm(event)" class="contact-link">✉ Email</a>
       <a href="https://linkedin.com/in/seif-eldaby" target="_blank" rel="noopener noreferrer" class="contact-link">in LinkedIn</a>
       <a href="https://github.com/seifeldaby" target="_blank" rel="noopener noreferrer" class="contact-link">⌥ GitHub</a>
       <a href="tel:+201551276259" class="contact-link">✆ +20 155 127 6259</a>
@@ -1531,6 +1531,16 @@ function routeFromHash() {
 }
 window.addEventListener('hashchange', routeFromHash);
 routeFromHash(); // run once on initial load so a direct/shared link opens the right page
+
+// Used by the "✉ Email" quick link on the Contact page itself:
+// scrolls to and focuses the working form instead of relying on mailto.
+function focusContactForm(e) {
+  if (e) e.preventDefault();
+  const form = document.getElementById('contactForm');
+  if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const nameField = document.getElementById('formName');
+  if (nameField) setTimeout(() => nameField.focus(), 400);
+}
 
 // Used by the "✉ Email" buttons on the Services page: jumps to the Contact
 // form and pre-fills the Subject field so the visitor doesn't retype it.
