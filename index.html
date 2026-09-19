@@ -58,6 +58,10 @@
 </script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D'/><text x='50' y='72' font-size='65' font-family='serif' font-weight='900' fill='%23C9A84C' text-anchor='middle'>S</text></svg>">
 <meta name="theme-color" content="#0D0D0D">
+<!-- Discourage browsers from serving a long-lived cached copy of this page -->
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <!-- IMPORTANT: replace this with your actual live URL once you know it -->
 <link rel="canonical" href="https://seifeldaby.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -964,7 +968,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="service-name">PCB Design & Routing</div>
         <div class="service-desc">Professional schematic capture and PCB layout (up to 2 layers). Delivery of comprehensive manufacturing files including Gerbers, NC Drill files, Pick & Place data, and Bill of Materials (BOM).</div>
         <div class="service-actions">
-          <a href="mailto:seif123eldaby@gmail.com?subject=Inquiry%3A%20PCB%20Design%20%26%20Routing" class="service-action">✉ Email</a>
+          <a href="#contact" onclick="goToContactWithSubject(event, 'PCB Design & Routing Inquiry')" class="service-action">✉ Email</a>
           <a href="https://wa.me/201551276259?text=Hi%20Seif%2C%20I%27m%20interested%20in%20PCB%20Design%20%26%20Routing" target="_blank" rel="noopener noreferrer" class="service-action">💬 WhatsApp</a>
         </div>
       </div>
@@ -976,7 +980,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="service-name">Rapid Prototyping & Fabrication</div>
         <div class="service-desc">Fast-turnaround manual fabrication (toner transfer etching & drilling) for rapid testing of single/double-sided boards, or managing professional manufacturing orders through standard fab houses.</div>
         <div class="service-actions">
-          <a href="mailto:seif123eldaby@gmail.com?subject=Inquiry%3A%20Rapid%20Prototyping%20%26%20Fabrication" class="service-action">✉ Email</a>
+          <a href="#contact" onclick="goToContactWithSubject(event, 'Rapid Prototyping & Fabrication Inquiry')" class="service-action">✉ Email</a>
           <a href="https://wa.me/201551276259?text=Hi%20Seif%2C%20I%27m%20interested%20in%20Rapid%20Prototyping%20%26%20Fabrication" target="_blank" rel="noopener noreferrer" class="service-action">💬 WhatsApp</a>
         </div>
       </div>
@@ -988,7 +992,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <div class="service-name">Assembly & Hardware Debugging</div>
         <div class="service-desc">Precise soldering for both SMD and THT components. Comprehensive hardware debugging, power routing validation, and functional testing to ensure a reliable final product.</div>
         <div class="service-actions">
-          <a href="mailto:seif123eldaby@gmail.com?subject=Inquiry%3A%20Assembly%20%26%20Hardware%20Debugging" class="service-action">✉ Email</a>
+          <a href="#contact" onclick="goToContactWithSubject(event, 'Assembly & Hardware Debugging Inquiry')" class="service-action">✉ Email</a>
           <a href="https://wa.me/201551276259?text=Hi%20Seif%2C%20I%27m%20interested%20in%20Assembly%20%26%20Hardware%20Debugging" target="_blank" rel="noopener noreferrer" class="service-action">💬 WhatsApp</a>
         </div>
       </div>
@@ -1128,6 +1132,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="cert-icon">🖥️</div>
           <div class="cert-name">PCB Design Level 1 — KiCAD</div>
           <div class="cert-issuer">INNOVA</div>
+          <a href="https://drive.google.com/drive/folders/10SG6sABF-4KixoRscQQbQczTTHOoq6gZ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
         </div>
         <div class="cert-card reveal reveal-delay-1">
           <div class="cert-icon">📜</div>
@@ -1207,6 +1212,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="cert-name">AI & Data Scientist Track (Round 5) — IBM Curriculum</div>
           <div class="cert-issuer">Rowad Misr Al-Reqya / DEPI</div>
           <div class="cert-date">Apr – Sep 2026</div>
+          <a href="https://drive.google.com/drive/folders/1wEWh6Ynep_ecUzpopm-q8dNt1LkO5wQ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
         </div>
         <div class="cert-card reveal reveal-delay-4">
           <div class="cert-icon">☁️</div>
@@ -1257,18 +1263,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
           <div class="cert-name">ITIDA Assiut Summer Training Program — Electronics & AI Tracks</div>
           <div class="cert-issuer">ITIDA</div>
           <div class="cert-date">Aug 2026</div>
+          <a href="https://drive.google.com/drive/folders/1ZIHusPchAxQmhEORW_7SAoxfZQASJMHv?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
         </div>
         <div class="cert-card reveal reveal-delay-3">
           <div class="cert-icon">🎖️</div>
           <div class="cert-name">Digital Badge</div>
           <div class="cert-issuer">McKinsey.org (via Credly)</div>
           <div class="cert-date">Jul 2026</div>
-        </div>
-        <div class="cert-card reveal reveal-delay-1">
-          <div class="cert-icon">💼</div>
-          <div class="cert-name">Tech Career Advancement Program</div>
-          <div class="cert-issuer">Re:Coded (via Coursera)</div>
-          <div class="cert-date">Apr 2026</div>
+          <a href="https://drive.google.com/drive/folders/1w9HckbM7QJODETL-hGkjOUx8Pvok5ZvF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
         </div>
       </div>
     </div>
@@ -1322,15 +1324,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
       <div class="projects-grid">
         <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">🔌</div><div class="project-name">Custom ESP32 Development Board</div><div class="project-desc">Designed and manufactured a custom ESP32-based PCB from schematic to final board using EasyEDA — full SMD soldering.</div><a href="https://drive.google.com/drive/folders/1puzp1xZUmMg36VxH-O1sCALf186ebpB6?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-2" data-num="02"><div class="project-icon">🚗</div><div class="project-name">Autonomous Car — Custom Control & Power PCB</div><div class="project-desc">Designed and manually fabricated (chemical etching) a single custom PCB consolidating Jetson Nano, ESP32, IMU, encoder, LiDAR, depth camera, servo, and drive motors — with dual isolated battery systems and an ESP32-managed power-latching circuit. Assiut Motorsport / Atheer Control.</div><a href="https://drive.google.com/drive/folders/1aqNaNCfHPOQl2gYDoB0bJZGf4_GmNFlZ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
-        <div class="project-card reveal reveal-delay-3" data-num="03"><div class="project-icon">🏭</div><div class="project-name">PCB Production at Magnum Egypt</div><div class="project-desc">Led assembly of 90+ high-precision PCBs including smart wall switches and embedded systems boards.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="03"><div class="project-icon">🏭</div><div class="project-name">PCB Production at Magnum Egypt</div><div class="project-desc">Led assembly of 90+ high-precision PCBs including smart wall switches and embedded systems boards.</div><a href="https://drive.google.com/drive/folders/1NsUU1EIdgv3NKAovYBSsDVfLSfEweD-D?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-1" data-num="04"><div class="project-icon">⚙️</div><div class="project-name">H-Bridge + PWM DC Motor Speed Control</div><div class="project-desc">MOSFET H-Bridge with 555-timer PWM speed control, tested on breadboard with a DC motor.</div><a href="https://drive.google.com/drive/folders/1OnF7B1wyBFMdWclc_ouUmZIE78-vnd_C?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-2" data-num="05"><div class="project-icon">🔋</div><div class="project-name">AC-DC Full-Wave Rectifier PCB</div><div class="project-desc">AC-to-DC rectifier with LM7805 regulator, plus a separate half-wave rectifier analysis — simulated and tested in Proteus.</div><a href="https://drive.google.com/drive/folders/1iIQ9-TlElpHAzpGwhVn35ga96g9psikI?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
-        <div class="project-card reveal reveal-delay-3" data-num="06"><div class="project-icon">💡</div><div class="project-name">AC 220V to LED Driver</div><div class="project-desc">Transformer-based linear LED driver with bridge rectifier and series-parallel LED topology. Simulated in LTSpice.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="06"><div class="project-icon">💡</div><div class="project-name">AC 220V to LED Driver</div><div class="project-desc">Transformer-based linear LED driver with bridge rectifier and series-parallel LED topology. Simulated in LTSpice.</div><a href="https://github.com/seifeldaby/AC-DC-LED-Driver-PCB" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a></div>
         <div class="project-card reveal reveal-delay-1" data-num="07"><div class="project-icon">➗</div><div class="project-name">ALU — Arithmetic Logic Unit</div><div class="project-desc">Digital logic design and implementation of a custom Arithmetic Logic Unit.</div><a href="https://drive.google.com/drive/folders/1vsIRCCFnSGsOwyc2oBASRGOKnIcMwB_J?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-2" data-num="08"><div class="project-icon">⏱️</div><div class="project-name">24-Hour Digital Clock — Breadboard Version</div><div class="project-desc">No-microcontroller hardware-logic clock built with an NE555 timer, CD4026 counters, and AND-gate reset logic. Simulated and tested in Proteus, with full bilingual (Arabic/English) documentation and BOM.</div><a href="https://drive.google.com/drive/folders/1S95CjTIZY3ZYbnafJkVRpJpLgrBhFKPa?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-3" data-num="09"><div class="project-icon">🕐</div><div class="project-name">24-Hour Digital Clock — PCB Version</div><div class="project-desc">No-microcontroller PCB clock upgraded for timing accuracy: crystal oscillator + 4060 divider + flip-flop for a precise 1Hz reference, plus a 3-button manual time-setting system with LED digit separators.</div><a href="https://drive.google.com/drive/folders/1QGc486hVqPcVOxmtnIdgwk1R9cVP-_o9?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-1" data-num="10"><div class="project-icon">🔀</div><div class="project-name">2-Channel Relay Module (PCB)</div><div class="project-desc">2-channel relay module PCB with optocoupler isolation for safe switching of external loads.</div><a href="https://drive.google.com/drive/folders/11jAjNwfvSIh0ZthuOd90M96GDDBwCeQF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
         <div class="project-card reveal reveal-delay-2" data-num="11"><div class="project-icon">🏎️</div><div class="project-name">Formula Student — Engine Division</div><div class="project-desc">Contributed to Formula Student car development within the Engine Division at Assiut Motorsport.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="12"><div class="project-icon">🏭</div><div class="project-name">PCB Production at AntX</div><div class="project-desc">PCB design and manufacturing work as part of the AntX hardware program — from schematic and layout through to fabricated boards.</div><a href="https://drive.google.com/drive/folders/1jB0YlxYXvIaIqMazF7YZxUyoXL1dlClR?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
       </div>
     </div>
 
@@ -1340,7 +1343,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="subsection-title">Autonomous Systems & Robotics</span>
       </div>
       <div class="projects-grid">
-        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">⚡</div><div class="project-name">Autonomous Mapping & Localization</div><div class="project-desc">SLAM + Particle Filter + LiDAR odometry (rf2o) within ROS 2 / Docker. 7th globally at ICRA 2026 RoboRacer out of 73 teams.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">⚡</div><div class="project-name">Autonomous Mapping & Localization</div><div class="project-desc">SLAM + Particle Filter + LiDAR odometry (rf2o) within ROS 2 / Docker. 7th globally at ICRA 2026 RoboRacer out of 73 teams.</div><a href="https://github.com/seifeldaby/Autonomous-Mapping-Localization" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a></div>
       </div>
     </div>
 
@@ -1350,7 +1353,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
         <span class="subsection-title">AI & Software</span>
       </div>
       <div class="projects-grid">
-        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">🧠</div><div class="project-name">Fashion-MNIST CNN Classifier</div><div class="project-desc">CNN in TensorFlow / Keras achieving ~91% test accuracy classifying 10 clothing categories. Built with OpenCV pipeline.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">🧠</div><div class="project-name">Fashion-MNIST CNN Classifier</div><div class="project-desc">CNN in TensorFlow / Keras achieving ~91% test accuracy classifying 10 clothing categories. Built with OpenCV pipeline.</div><a href="https://github.com/seifeldaby/Fashion-MNIST-CNN-Classifier" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a></div>
       </div>
     </div>
   </div>
@@ -1445,6 +1448,27 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 <a href="#" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑</a>
 
 <script>
+// ── FRESHNESS CHECK ──
+// If this tab is left open and idle (no clicks/scrolling/typing) for 5+ minutes,
+// reload it the next time it's focused again, so it never shows a stale cached
+// version of the site if content was updated in the meantime.
+(function () {
+  const STALE_AFTER_MS = 5 * 60 * 1000; // 5 minutes
+  let lastActiveAt = Date.now();
+  ['click', 'scroll', 'keydown', 'mousemove', 'touchstart'].forEach(evt => {
+    window.addEventListener(evt, () => { lastActiveAt = Date.now(); }, { passive: true });
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') {
+      if (Date.now() - lastActiveAt > STALE_AFTER_MS) {
+        window.location.reload();
+        return;
+      }
+      lastActiveAt = Date.now();
+    }
+  });
+})();
+
 // ── LOADER ──
 setTimeout(() => { document.getElementById('loader').classList.add('hide'); }, 3500);
 
@@ -1507,6 +1531,19 @@ function routeFromHash() {
 }
 window.addEventListener('hashchange', routeFromHash);
 routeFromHash(); // run once on initial load so a direct/shared link opens the right page
+
+// Used by the "✉ Email" buttons on the Services page: jumps to the Contact
+// form and pre-fills the Subject field so the visitor doesn't retype it.
+function goToContactWithSubject(e, subject) {
+  if (e) e.preventDefault();
+  const subjectField = document.getElementById('formSubject');
+  if (subjectField) subjectField.value = subject;
+  showPage('contact');
+  setTimeout(() => {
+    const msgField = document.getElementById('formMessage');
+    if (msgField) msgField.focus();
+  }, 450);
+}
 
 // ── SCROLL REVEAL ──
 function triggerReveal() {
