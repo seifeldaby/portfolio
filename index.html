@@ -270,6 +270,16 @@ h1 span { color: var(--gold); }
 }
 .btn-outline:hover { border-color: var(--gold); }
 
+/* Home: About teaser */
+.home-about { max-width: 780px; }
+.home-about-eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+.home-about-text { font-size: 1.15rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.2rem; }
+.home-about-link { font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
+.home-about-link:hover { opacity: 1; }
+
+/* Home: View all projects button wrapper */
+.home-view-all { display: flex; justify-content: center; margin-top: 2.5rem; }
+
 /* PHOTO */
 .hero-photo { display: flex; justify-content: flex-end; align-items: center; position: relative; }
 .photo-frame { position: relative; width: 380px; height: 480px; }
@@ -730,6 +740,48 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
     <div class="stat reveal reveal-delay-2"><div class="stat-num">7th</div><div class="stat-label">Global · ICRA 2026</div></div>
     <div class="stat reveal reveal-delay-3"><div class="stat-num">4+</div><div class="stat-label">Years Experience</div></div>
     <div class="stat reveal reveal-delay-4"><div class="stat-num">150+</div><div class="stat-label">Students Taught</div></div>
+  </div>
+
+  <!-- Home: About Teaser -->
+  <div class="section-wrap" style="padding-top: 1.5rem;">
+    <div class="home-about reveal">
+      <div class="home-about-eyebrow">Who I Am</div>
+      <p class="home-about-text">I'm an Electrical & Electronics Engineering student at Assiut University who genuinely loves the moment a circuit you designed on paper actually powers on. Over the last four years that's meant soldering 90+ PCBs by hand, teaching 150+ students how electronics work, and — most recently — building the autonomous stack that took my team to 7th place globally at ICRA 2026, in our very first year competing. I move comfortably between the hardware bench and the codebase: designing a board in Altium one day, debugging a ROS 2 SLAM pipeline the next.</p>
+      <a href="#about" class="home-about-link">Read my full story ↗</a>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Home: What I Do Teaser -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Focus Areas</div>
+        <div class="section-title">What I Do</div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1" data-num="01">
+        <div class="service-icon">📐</div>
+        <div class="service-name">PCB & Hardware Design</div>
+        <div class="service-desc">Schematic capture, layout, and full manufacturing files — from concept to a working board in your hands.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2" data-num="02">
+        <div class="service-icon">🤖</div>
+        <div class="service-name">Autonomous Systems</div>
+        <div class="service-desc">SLAM, sensor fusion, and control pipelines for robotics — the software that lets hardware think for itself.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3" data-num="03">
+        <div class="service-icon">🧠</div>
+        <div class="service-name">AI & Data</div>
+        <div class="service-desc">Applied machine learning — from computer vision models to data-driven decision tools.</div>
+      </div>
+    </div>
+    <div class="home-view-all">
+      <a href="#services" class="btn-outline">Go to Services ↗</a>
+    </div>
   </div>
 </div>
 
