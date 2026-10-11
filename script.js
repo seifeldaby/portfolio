@@ -1,3 +1,16 @@
+// ── CLEAR OUT ANY OLD CACHED VERSION ──
+// Belt-and-braces: if a service worker or the Cache Storage API was ever
+// registered for this site (e.g. by a future PWA setup), drop it so a
+// refresh always gets the latest files instead of a stale cached copy.
+(function () {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister())).catch(() => {});
+  }
+  if (window.caches && caches.keys) {
+    caches.keys().then(keys => keys.forEach(k => caches.delete(k))).catch(() => {});
+  }
+})();
+
 // ── FRESHNESS CHECK ──
 // If this tab is left open and idle (no clicks/scrolling/typing) for 5+ minutes,
 // reload it the next time it's focused again, so it never shows a stale cached
@@ -254,3 +267,31 @@ document.getElementById('contactForm').addEventListener('submit', async function
     btn.disabled = false; btn.textContent = 'Send Message';
   }
 });
+
+// ── PROFILE PHOTO: subtle 3D tilt that follows the cursor ──
+// Skipped on touch devices (no real cursor) and when the OS asks for less motion.
+(function () {
+  const frame = document.getElementById('photoFrame');
+  const img = document.getElementById('profilePhoto');
+  if (!frame || !img) return;
+  const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = window.matchMedia && window.matchMedia('(hover: none)').matches;
+  if (prefersReduced || isTouch) return;
+
+  let raf = null;
+  frame.addEventListener('mousemove', (e) => {
+    const r = frame.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      img.style.setProperty('--tiltX', (px * 10).toFixed(2) + 'deg');
+      img.style.setProperty('--tiltY', (-py * 7).toFixed(2) + 'deg');
+      raf = null;
+    });
+  });
+  frame.addEventListener('mouseleave', () => {
+    img.style.setProperty('--tiltX', '0deg');
+    img.style.setProperty('--tiltY', '0deg');
+  });
+})();
