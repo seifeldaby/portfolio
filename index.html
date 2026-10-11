@@ -66,7 +66,7 @@
 <link rel="canonical" href="https://seifeldaby.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=20261011">
 </head>
 <body>
 
@@ -118,8 +118,10 @@
       </div>
     </div>
     <div class="hero-photo">
-      <div class="photo-frame">
+      <div class="photo-frame" id="photoFrame">
+        <div class="photo-glow"></div>
         <img src="assets/seif-photo.png" alt="Seif Eldaby" id="profilePhoto" />
+        <div class="photo-shine"></div>
         <div class="photo-badge">
           <div class="badge-num">7th</div>
           <div class="badge-txt">Global · ICRA 2026</div>
@@ -539,7 +541,7 @@
       </div>
       <div class="certs-grid">
         <div class="cert-card reveal reveal-delay-4">
-          <a href="assets/certificates/CSWA_SolidWorks_CAD_Design_Associate.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/CSWA_SolidWorks_CAD_Design_Associate.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="CSWA — SolidWorks CAD Design Associate preview"></iframe></a>
+          <a href="assets/certificates/CSWA_SolidWorks_CAD_Design_Associate.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🏅</div>
             <div class="cert-name">CSWA — SolidWorks CAD Design Associate</div>
@@ -549,7 +551,7 @@
           </div>
         </div>
         <div class="cert-card reveal reveal-delay-1">
-          <a href="assets/certificates/Professional_PCB_Design_Altium_Udemy.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/Professional_PCB_Design_Altium_Udemy.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="Professional PCB Designer with Altium preview"></iframe></a>
+          <a href="assets/certificates/Professional_PCB_Design_Altium_Udemy.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🔧</div>
             <div class="cert-name">Professional PCB Designer with Altium</div>
@@ -614,7 +616,7 @@
       </div>
       <div class="certs-grid">
         <div class="cert-card reveal reveal-delay-3">
-          <a href="assets/certificates/ICRA_2026_RoboRacer_League_Participation.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/ICRA_2026_RoboRacer_League_Participation.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="ICRA 2026 RoboRacer Sim Racing League — Participation preview"></iframe></a>
+          <a href="assets/certificates/ICRA_2026_RoboRacer_League_Participation.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🏎️</div>
             <div class="cert-name">ICRA 2026 RoboRacer Sim Racing League — Participation</div>
@@ -624,7 +626,7 @@
           </div>
         </div>
         <div class="cert-card reveal reveal-delay-4">
-          <a href="assets/certificates/Assiut_Motorsport_Kickdown_2025_Participation.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/Assiut_Motorsport_Kickdown_2025_Participation.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="Assiut Motorsport — Kickdown 2025 Participation preview"></iframe></a>
+          <a href="assets/certificates/Assiut_Motorsport_Kickdown_2025_Participation.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🏎️</div>
             <div class="cert-name">Assiut Motorsport — Kickdown 2025 Participation</div>
@@ -634,7 +636,7 @@
           </div>
         </div>
         <div class="cert-card reveal reveal-delay-2">
-          <a href="assets/certificates/Certificate%20of%20Qualification%20-%205th%20International%20RoboRacer%20Sim%20Racing.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/Certificate%20of%20Qualification%20-%205th%20International%20RoboRacer%20Sim%20Racing.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="Certificate of Qualification - 5th International RoboRacer Sim Racing preview"></iframe></a>
+          <a href="assets/certificates/Certificate%20of%20Qualification%20-%205th%20International%20RoboRacer%20Sim%20Racing.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🏅</div>
             <div class="cert-name">Certificate of Qualification - 5th International RoboRacer Sim Racing</div>
@@ -701,7 +703,7 @@
           </div>
         </div>
         <div class="cert-card reveal reveal-delay-4">
-          <a href="assets/certificates/AWS_Educate_Program_Completion.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/AWS_Educate_Program_Completion.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="AWS Educate DECI Summer Program preview"></iframe></a>
+          <a href="assets/certificates/AWS_Educate_Program_Completion.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">☁️</div>
             <div class="cert-name">AWS Educate DECI Summer Program</div>
@@ -739,7 +741,7 @@
           </div>
         </div>
         <div class="cert-card reveal reveal-delay-3">
-          <a href="assets/certificates/DECI_Geeks_L2_Midyear_Competition_Microsoft_Feb_2023.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/DECI_Geeks_L2_Midyear_Competition_Microsoft_Feb_2023.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="DECI-GEEKS L2 Midyear Competition preview"></iframe></a>
+          <a href="assets/certificates/DECI_Geeks_L2_Midyear_Competition_Microsoft_Feb_2023.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🏅</div>
             <div class="cert-name">DECI-GEEKS L2 Midyear Competition</div>
@@ -749,7 +751,7 @@
           </div>
         </div>
         <div class="cert-card reveal reveal-delay-1">
-          <a href="assets/certificates/AAKRUTI_2025_Innovation_Competition.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><iframe src="assets/certificates/AAKRUTI_2025_Innovation_Competition.pdf#toolbar=0&navpanes=0&view=FitH" loading="lazy" title="AAKRUTI 2025 Innovation Competition preview"></iframe></a>
+          <a href="assets/certificates/AAKRUTI_2025_Innovation_Competition.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div></a>
           <div class="cert-body">
             <div class="cert-icon">🎖️</div>
             <div class="cert-name">AAKRUTI 2025 Innovation Competition</div>
@@ -954,6 +956,6 @@
 <!-- BACK TO TOP -->
 <a href="#" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑</a>
 
-<script src="script.js"></script>
+<script src="script.js?v=20261011"></script>
 </body>
 </html>
