@@ -259,6 +259,76 @@ h1 span { color: var(--gold); }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
+/* ── SITE-WIDE ANIMATIONS ── */
+
+/* Page switch: soft fade + rise every time a page becomes active */
+.page.active { animation: pageIn 0.55s cubic-bezier(0.16,1,0.3,1); }
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Profile photo: idle float, pulsing gold frame, and a hover tilt/zoom */
+.photo-frame { animation: photoFloat 6s ease-in-out infinite; }
+@keyframes photoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.photo-frame::before { animation: frameGlow 3.5s ease-in-out infinite; }
+.photo-frame::after { animation: frameGlow 3.5s ease-in-out infinite 0.4s; }
+@keyframes frameGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.9; }
+}
+.photo-frame img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease; }
+.photo-frame:hover img { transform: scale(1.045) rotate(-0.6deg); filter: grayscale(0%) contrast(1.1); }
+.photo-badge { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+.photo-frame:hover .photo-badge { transform: translateY(-4px); }
+
+/* Service & tool logos: lift + scale on hover */
+.service-image img, .tool-logo img { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); }
+.service-card:hover .service-image img { transform: scale(1.1) rotate(-2deg); }
+.tool-item:hover .tool-logo img { transform: scale(1.12); }
+
+/* Emoji icons: a small bounce/rotate wherever a card is hovered */
+.service-icon, .project-icon, .cert-icon { display: inline-block; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
+.service-card:hover .service-icon { transform: scale(1.2) rotate(-6deg); }
+.project-card:hover .project-icon { transform: scale(1.2) rotate(-6deg); }
+.cert-card:hover .cert-icon { transform: scale(1.2) rotate(6deg); }
+
+/* Buttons: light shine sweep on hover */
+.btn-primary, .btn-outline { position: relative; overflow: hidden; }
+.btn-primary::after, .btn-outline::after {
+  content: ''; position: absolute; top: 0; left: -75%; width: 45%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: skewX(-20deg); pointer-events: none;
+}
+.btn-primary:hover::after, .btn-outline:hover::after { animation: btnShine 0.85s ease; }
+@keyframes btnShine { from { left: -75%; } to { left: 125%; } }
+
+/* Stat numbers: pop in once revealed */
+.reveal.visible .stat-num { animation: statPop 0.55s cubic-bezier(0.34,1.56,0.64,1); }
+@keyframes statPop { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Certificate thumbnails already scale on hover (see .cert-thumb rules above); add a soft fade-zoom on tool/service fallback icons too */
+.service-image-fallback, .tool-logo-fallback { transition: transform 0.4s ease; }
+.service-card:hover .service-image-fallback, .tool-item:hover .tool-logo-fallback { transform: scale(1.1); }
+
+/* Respect users who've asked the OS for less motion */
+@media (prefers-reduced-motion: reduce) {
+  .page.active,
+  .photo-frame,
+  .photo-frame::before,
+  .photo-frame::after,
+  .reveal.visible .stat-num,
+  .btn-primary::after,
+  .btn-outline::after {
+    animation: none !important;
+  }
+  .reveal { transition-duration: 0.01ms !important; }
+  * { scroll-behavior: auto !important; }
+}
+
 /* ── SECTION COMMONS ── */
 .section-wrap { padding: 3rem 4rem; }
 .section-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 3rem; }
