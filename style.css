@@ -202,9 +202,9 @@ h1 span { color: var(--gold); }
 .btn-outline:hover { border-color: var(--gold); }
 
 /* Home: About teaser */
-.home-about { max-width: 780px; margin: 0 auto; text-align: center; }
-.home-about-eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
-.home-about-text { text-align: left; font-size: 1.15rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.2rem; }
+.home-about { max-width: 860px; margin: 0 auto; text-align: center; }
+.home-about-eyebrow { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.home-about-text { text-align: left; font-size: 1.45rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.4rem; }
 .home-about-link { font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
 .home-about-link:hover { opacity: 1; }
 
@@ -268,33 +268,65 @@ h1 span { color: var(--gold); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Profile photo: idle float, pulsing gold frame, and a hover tilt/zoom */
-.photo-frame { animation: photoFloat 6s ease-in-out infinite; }
+/* Profile photo: idle float, a smooth breathing glow, a slow light sweep,
+   and a subtle 3D tilt that follows the cursor (set via --tiltX/--tiltY,
+   written by script.js) instead of the old blinking border + rotate-on-hover. */
+.photo-frame {
+  animation: photoFloat 6s ease-in-out infinite;
+  perspective: 900px;
+}
 @keyframes photoFloat {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
-.photo-frame::before { animation: frameGlow 3.5s ease-in-out infinite; }
-.photo-frame::after { animation: frameGlow 3.5s ease-in-out infinite 0.4s; }
-@keyframes frameGlow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.9; }
+.photo-frame::before,
+.photo-frame::after { opacity: 0.4; }
+.photo-frame { filter: drop-shadow(0 0 0 rgba(201,168,76,0)); }
+.photo-frame .photo-glow {
+  position: absolute; inset: -14px; z-index: 0; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(201,168,76,0.35), transparent 70%);
+  animation: glowBreathe 5s ease-in-out infinite;
 }
-.photo-frame img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease; }
-.photo-frame:hover img { transform: scale(1.045) rotate(-0.6deg); filter: grayscale(0%) contrast(1.1); }
+@keyframes glowBreathe {
+  0%, 100% { opacity: 0.35; transform: scale(0.96); }
+  50% { opacity: 0.75; transform: scale(1.04); }
+}
+.photo-frame img {
+  --tiltX: 0deg; --tiltY: 0deg;
+  transform: scale(1) rotateX(var(--tiltY)) rotateY(var(--tiltX));
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease;
+  transform-style: preserve-3d;
+}
+.photo-frame:hover img { transform: scale(1.035) rotateX(var(--tiltY)) rotateY(var(--tiltX)); filter: grayscale(0%) contrast(1.08); }
+/* Slow diagonal light sweep across the photo — subtle, not constant/flashy */
+.photo-frame .photo-shine {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  overflow: hidden;
+}
+.photo-frame .photo-shine::before {
+  content: ''; position: absolute; top: 0; left: -60%;
+  width: 35%; height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255,255,255,0.16), transparent);
+  transform: skewX(-18deg);
+  animation: photoShineSweep 7s ease-in-out infinite;
+}
+@keyframes photoShineSweep {
+  0%, 20% { left: -60%; }
+  40%, 100% { left: 140%; }
+}
 .photo-badge { transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
 .photo-frame:hover .photo-badge { transform: translateY(-4px); }
 
 /* Service & tool logos: lift + scale on hover */
 .service-image img, .tool-logo img { transition: transform 0.45s cubic-bezier(0.16,1,0.3,1); }
-.service-card:hover .service-image img { transform: scale(1.1) rotate(-2deg); }
+.service-card:hover .service-image img { transform: scale(1.1); }
 .tool-item:hover .tool-logo img { transform: scale(1.12); }
 
-/* Emoji icons: a small bounce/rotate wherever a card is hovered */
-.service-icon, .project-icon, .cert-icon { display: inline-block; transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1); }
-.service-card:hover .service-icon { transform: scale(1.2) rotate(-6deg); }
-.project-card:hover .project-icon { transform: scale(1.2) rotate(-6deg); }
-.cert-card:hover .cert-icon { transform: scale(1.2) rotate(6deg); }
+/* Emoji icons: a calm scale/lift wherever a card is hovered — no rotation */
+.service-icon, .project-icon, .cert-icon { display: inline-block; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1); }
+.service-card:hover .service-icon { transform: scale(1.18) translateY(-2px); }
+.project-card:hover .project-icon { transform: scale(1.18) translateY(-2px); }
+.cert-card:hover .cert-icon { transform: scale(1.18) translateY(-2px); }
 
 /* Buttons: light shine sweep on hover */
 .btn-primary, .btn-outline { position: relative; overflow: hidden; }
@@ -318,8 +350,8 @@ h1 span { color: var(--gold); }
 @media (prefers-reduced-motion: reduce) {
   .page.active,
   .photo-frame,
-  .photo-frame::before,
-  .photo-frame::after,
+  .photo-frame .photo-glow,
+  .photo-frame .photo-shine::before,
   .reveal.visible .stat-num,
   .btn-primary::after,
   .btn-outline::after {
@@ -492,8 +524,17 @@ h1 span { color: var(--gold); }
   transition: transform 0.3s ease;
 }
 .cert-card:hover .cert-thumb img { transform: scale(1.04); }
-.cert-thumb-pdf iframe {
-  width: 100%; height: 100%; border: none; pointer-events: none;
+/* PDFs used to render as a live <iframe> (the browser's full PDF engine loading
+   8 times on one page) — that's what was making the certificates section slow.
+   Now it's a static, instant placeholder that still opens the real PDF on click. */
+.cert-pdf-preview {
+  width: 100%; height: 100%; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.5rem;
+  background: linear-gradient(145deg, var(--dark2), var(--dark3));
+}
+.cert-pdf-preview .cert-pdf-icon { font-size: 2.1rem; color: var(--gold); opacity: 0.85; }
+.cert-pdf-preview .cert-pdf-label {
+  font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted);
 }
 .cert-thumb::after {
   content: '🔍 View'; position: absolute; bottom: 6px; right: 8px;
