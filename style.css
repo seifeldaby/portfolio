@@ -203,8 +203,11 @@ h1 span { color: var(--gold); }
 
 /* Home: About teaser */
 .home-about { max-width: 860px; margin: 0 auto; text-align: center; }
-.home-about-eyebrow { font-size: 0.85rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
-.home-about-text { text-align: left; font-size: 1.45rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.4rem; }
+.home-about-eyebrow {
+  font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem;
+}
+.home-about-text { text-align: left; font-size: 1.2rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.4rem; }
 .home-about-link { font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
 .home-about-link:hover { opacity: 1; }
 
@@ -525,8 +528,10 @@ h1 span { color: var(--gold); }
 }
 .cert-card:hover .cert-thumb img { transform: scale(1.04); }
 /* PDFs used to render as a live <iframe> (the browser's full PDF engine loading
-   8 times on one page) — that's what was making the certificates section slow.
-   Now it's a static, instant placeholder that still opens the real PDF on click. */
+   8 times on one page at once) — that's what made the certificates section slow.
+   Now the first page is drawn once onto a <canvas>, lazily, only when the card
+   scrolls near the viewport (see script.js) — the certificate still shows fully
+   inside the site, just without 8 heavy PDF-viewer instances loading at once. */
 .cert-pdf-preview {
   width: 100%; height: 100%; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 0.5rem;
@@ -536,6 +541,7 @@ h1 span { color: var(--gold); }
 .cert-pdf-preview .cert-pdf-label {
   font-size: 0.62rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted);
 }
+.cert-pdf-canvas { width: 100%; height: 100%; object-fit: contain; display: none; }
 .cert-thumb::after {
   content: '🔍 View'; position: absolute; bottom: 6px; right: 8px;
   font-size: 0.65rem; letter-spacing: 0.5px; color: var(--text);
