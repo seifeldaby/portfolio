@@ -268,6 +268,54 @@ document.getElementById('contactForm').addEventListener('submit', async function
   }
 });
 
+// ── CERTIFICATE PDFs: render page 1 straight onto the card, lazily ──
+// Draws each PDF's first page onto a <canvas> inside its card so the actual
+// certificate shows on the site itself — no click-through needed to see it.
+// Only renders once a card scrolls near the viewport, and only once per card,
+// so all 8 certificates don't load at the same time.
+(function () {
+  const thumbs = document.querySelectorAll('.cert-thumb-pdf[data-pdf-src]');
+  if (!thumbs.length || typeof pdfjsLib === 'undefined') return;
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  async function renderPdfThumb(anchor) {
+    const src = anchor.dataset.pdfSrc;
+    const canvas = anchor.querySelector('.cert-pdf-canvas');
+    const placeholder = anchor.querySelector('.cert-pdf-preview');
+    if (!canvas || !src) return;
+    try {
+      const pdf = await pdfjsLib.getDocument(src).promise;
+      const page = await pdf.getPage(1);
+      const baseViewport = page.getViewport({ scale: 1 });
+      const targetWidth = (anchor.clientWidth || 300) * Math.min(window.devicePixelRatio || 1, 2);
+      const scale = targetWidth / baseViewport.width;
+      const viewport = page.getViewport({ scale });
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      const ctx = canvas.getContext('2d');
+      await page.render({ canvasContext: ctx, viewport }).promise;
+      canvas.style.display = 'block';
+      if (placeholder) placeholder.style.display = 'none';
+    } catch (err) {
+      // File not uploaded yet (or failed to load) — the icon+label placeholder stays, which is the intended default.
+    }
+  }
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          renderPdfThumb(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '300px 0px' });
+    thumbs.forEach(t => observer.observe(t));
+  } else {
+    thumbs.forEach(renderPdfThumb);
+  }
+})();
+
 // ── PROFILE PHOTO: subtle 3D tilt that follows the cursor ──
 // Skipped on touch devices (no real cursor) and when the OS asks for less motion.
 (function () {
