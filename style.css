@@ -202,9 +202,9 @@ h1 span { color: var(--gold); }
 .btn-outline:hover { border-color: var(--gold); }
 
 /* Home: About teaser */
-.home-about { max-width: 780px; }
+.home-about { max-width: 780px; margin: 0 auto; text-align: center; }
 .home-about-eyebrow { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
-.home-about-text { font-size: 1.15rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.2rem; }
+.home-about-text { text-align: left; font-size: 1.15rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.2rem; }
 .home-about-link { font-size: 0.78rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); text-decoration: none; opacity: 0.85; transition: opacity 0.2s; }
 .home-about-link:hover { opacity: 1; }
 
@@ -466,19 +466,29 @@ h1 span { color: var(--gold); }
 /* ── ACHIEVEMENTS ── */
 .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 4rem; }
 .cert-card {
+  display: flex; flex-direction: column;
   border: 0.5px solid var(--border); padding: 1.5rem;
   background: var(--dark3); transition: border-color 0.2s, transform 0.2s;
 }
 .cert-card:hover { border-color: var(--gold); transform: translateY(-4px); }
 
-/* Certificate thumbnail preview — shown above the text when a real cert file exists */
+/* Text block: centers vertically in whatever room is left under the thumbnail
+   (or fills the whole card when there's no thumbnail yet) */
+.cert-body {
+  display: flex; flex-direction: column; justify-content: center;
+  flex: 1;
+}
+
+/* Certificate thumbnail preview — shown above the text when a real cert file exists.
+   Sized by aspect-ratio + object-fit:contain so the WHOLE certificate is always
+   visible (never cropped), letterboxed on a dark background if needed. */
 .cert-thumb {
-  display: block; width: 100%; height: 130px; margin-bottom: 1rem;
+  display: block; width: 100%; aspect-ratio: 16 / 10; margin-bottom: 1rem;
   border: 0.5px solid var(--border); border-radius: 6px; overflow: hidden;
   background: var(--dark2); position: relative;
 }
 .cert-thumb img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%; height: 100%; object-fit: contain; display: block;
   transition: transform 0.3s ease;
 }
 .cert-card:hover .cert-thumb img { transform: scale(1.04); }
