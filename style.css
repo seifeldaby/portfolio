@@ -54,7 +54,7 @@ body {
   background: linear-gradient(90deg, transparent, var(--gold, #C9A84C), transparent);
   transform-origin: left center;
   opacity: 0;
-  animation: sparkConverge 0.9s ease-out forwards;
+  animation: sparkConverge 0.9s ease-out 2 forwards;
 }
 @keyframes sparkConverge {
   0%   { transform: rotate(var(--angle)) translateX(140px); opacity: 0; }
@@ -69,17 +69,17 @@ body {
   clip-path: inset(100% -40px -40px -40px);
   filter: drop-shadow(0 0 0 rgba(201,168,76,0));
   animation:
-    badgeReveal 1.3s cubic-bezier(0.16,1,0.3,1) 0.7s forwards,
-    badgeGlow 1.6s ease-in-out 2.0s forwards;
+    badgeReveal 1.9s cubic-bezier(0.16,1,0.3,1) 0.9s forwards,
+    badgeGlow 2.6s ease-in-out 2.9s infinite;
 }
 /* Wipes up from the bottom while scaling in — like the logo being "printed" */
 @keyframes badgeReveal {
   to { opacity: 1; transform: scale(1); clip-path: inset(-40px); }
 }
-/* One soft gold pulse once it's fully drawn */
+/* Soft gold pulse that keeps breathing until the loader fades out */
 @keyframes badgeGlow {
   0%, 100% { filter: drop-shadow(0 0 0 rgba(201,168,76,0)); }
-  50% { filter: drop-shadow(0 0 22px rgba(201,168,76,0.55)); }
+  50% { filter: drop-shadow(0 0 24px rgba(201,168,76,0.55)); }
 }
 
 .loader-name {
@@ -88,16 +88,16 @@ body {
   font-weight: 700; color: var(--gold, #C9A84C);
   letter-spacing: 3px;
   opacity: 0; transform: translateY(16px);
-  animation: loaderReveal 0.7s ease 2.5s forwards;
+  animation: loaderReveal 0.9s ease 3.7s forwards;
 }
 .loader-sub {
   font-size: 0.85rem; letter-spacing: 4px;
   text-transform: uppercase; color: #8A8680;
   margin-top: 0.8rem; opacity: 0;
-  animation: loaderReveal 0.7s ease 2.75s forwards;
+  animation: loaderReveal 0.9s ease 4.2s forwards;
 }
 .loader-bar { width: 140px; height: 1px; background: rgba(201,168,76,0.2); margin-top: 2.2rem; overflow: hidden; }
-.loader-bar-fill { height: 100%; width: 0; background: var(--gold, #C9A84C); animation: loaderBar 0.9s ease 2.9s forwards; }
+.loader-bar-fill { height: 100%; width: 0; background: var(--gold, #C9A84C); animation: loaderBar 2.2s ease 4.5s forwards; }
 @keyframes loaderReveal { to { opacity: 1; transform: translateY(0); } }
 @keyframes loaderBar { to { width: 100%; } }
 
@@ -126,7 +126,16 @@ body.light nav { background: rgba(245,242,235,0.92); }
   font-size: 1.1rem; color: var(--gold);
   letter-spacing: 2px; text-transform: uppercase;
   text-decoration: none; cursor: pointer;
+
+  display: flex; align-items: center; gap: 0.7rem;
 }
+/* Logo images are filled in by script.js (it finds assets/logo.<any extension>).
+   They stay hidden until a file is actually found, so a missing logo never shows a broken icon. */
+.site-logo:not([src]) { display: none; }
+.nav-logo-img { height: 36px; width: auto; display: block; transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s; }
+.nav-logo:hover .nav-logo-img { transform: scale(1.08); filter: drop-shadow(0 0 8px rgba(201,168,76,0.55)); }
+body.light .site-logo { filter: brightness(0.62) saturate(1.3); }
+body.light .nav-logo:hover .nav-logo-img { filter: brightness(0.62) saturate(1.3) drop-shadow(0 0 6px rgba(139,105,20,0.5)); }
 .nav-links { display: flex; gap: 2rem; align-items: center; }
 .nav-links button {
   background: none; border: none; cursor: pointer;
@@ -740,9 +749,14 @@ h1 span { color: var(--gold); }
 footer {
   padding: 1.5rem 4rem;
   border-top: 0.5px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;
+  row-gap: 1rem;
   font-size: 0.75rem; color: var(--text-muted);
 }
+.footer-logo-wrap { flex: 0 0 100%; display: flex; justify-content: center; padding-top: 0.5rem; }
+.footer-logo { height: 56px; width: auto; display: block; opacity: 0.9; transition: opacity 0.3s, transform 0.4s cubic-bezier(0.34,1.56,0.64,1), filter 0.3s; }
+.footer-logo:hover { opacity: 1; transform: scale(1.08); filter: drop-shadow(0 0 10px rgba(201,168,76,0.5)); }
+body.light .footer-logo:hover { filter: brightness(0.62) saturate(1.3) drop-shadow(0 0 8px rgba(139,105,20,0.45)); }
 
 /* ── BACK TO TOP ── */
 #backToTop {
