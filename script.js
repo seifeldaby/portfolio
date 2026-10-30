@@ -1,3 +1,35 @@
+// ── LOGO: find assets/logo.<any extension> ──
+// The logo is referenced by NAME ONLY (assets/logo). Upload your logo as
+// logo.png, logo.svg, logo.webp, logo.jpg, ... — whichever extension you like —
+// and this finds it and fills in the loader, navbar, footer and the browser-tab
+// favicon. If none of them exists, the logo spots simply stay hidden.
+(function () {
+  const BASE = 'assets/logo';
+  const EXTS = ['png', 'svg', 'webp', 'jpg', 'jpeg', 'gif', 'avif', 'ico'];
+  const MIME = { png: 'image/png', svg: 'image/svg+xml', webp: 'image/webp', jpg: 'image/jpeg',
+                 jpeg: 'image/jpeg', gif: 'image/gif', avif: 'image/avif', ico: 'image/x-icon' };
+
+  function probe(i) {
+    if (i >= EXTS.length) return;
+    const ext = EXTS[i];
+    const url = BASE + '.' + ext;
+    const test = new Image();
+    test.onload = () => apply(url, ext);
+    test.onerror = () => probe(i + 1);
+    test.src = url;
+  }
+
+  function apply(url, ext) {
+    document.querySelectorAll('img[data-logo]').forEach(img => { img.src = url; });
+    const fav = document.getElementById('siteFavicon');
+    if (fav) { fav.type = MIME[ext] || ''; fav.href = url; }
+    const apple = document.getElementById('siteAppleIcon');
+    if (apple) apple.href = url;
+  }
+
+  probe(0);
+})();
+
 // ── CLEAR OUT ANY OLD CACHED VERSION ──
 // Belt-and-braces: if a service worker or the Cache Storage API was ever
 // registered for this site (e.g. by a future PWA setup), drop it so a
@@ -33,11 +65,11 @@
 })();
 
 // ── LOADER ──
-// Full circuit/logo reveal plays every time the page loads.
+// Full circuit/logo reveal plays every time the page loads (~7 seconds).
 (function () {
   const loaderEl = document.getElementById('loader');
   if (!loaderEl) return;
-  setTimeout(() => loaderEl.classList.add('hide'), 4100);
+  setTimeout(() => loaderEl.classList.add('hide'), 7000);
 })();
 
 // ── TYPING EFFECT ──
