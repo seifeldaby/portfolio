@@ -46,8 +46,8 @@ body {
 }
 #loader.hide { opacity: 0; visibility: hidden; pointer-events: none; }
 
-/* Emblem stage: radial sparks converging into a drawn circuit-badge.
-   Bigger canvas + a longer, more detailed draw-in sequence (~4s total). */
+/* Emblem stage: radial sparks converging, then the real logo image is revealed.
+   Whole sequence runs ~4s. */
 .loader-stage { position: relative; width: 200px; height: 200px; margin-bottom: 1.8rem; }
 .loader-spark {
   position: absolute; top: 50%; left: 50%; width: 70px; height: 2.5px;
@@ -63,47 +63,24 @@ body {
 }
 
 .loader-badge {
-  position: relative; z-index: 1;
-  opacity: 0; transform: scale(0.8);
-  animation: badgeIn 0.5s cubic-bezier(0.16,1,0.3,1) 0.55s forwards;
+  position: relative; z-index: 1; display: block;
+  width: 200px; height: auto;
+  opacity: 0; transform: scale(0.82);
+  clip-path: inset(100% -40px -40px -40px);
+  filter: drop-shadow(0 0 0 rgba(201,168,76,0));
+  animation:
+    badgeReveal 1.3s cubic-bezier(0.16,1,0.3,1) 0.7s forwards,
+    badgeGlow 1.6s ease-in-out 2.0s forwards;
 }
-@keyframes badgeIn { to { opacity: 1; transform: scale(1); } }
-
-/* Thick circuit "C" — a wide stroke with a gap left open on the right,
-   where the E's arms exit (same spot the reference logo opens at). */
-.loader-badge-ring {
-  fill: none; stroke: var(--gold, #C9A84C); stroke-width: 15;
-  stroke-linecap: round;
-  stroke-dasharray: 426.6 164.1; stroke-dashoffset: 82;
-  opacity: 0; transform-origin: 120px 120px; transform: rotate(-6deg) scale(0.92);
-  animation: ringIn 0.6s cubic-bezier(0.16,1,0.3,1) 0.65s forwards;
+/* Wipes up from the bottom while scaling in — like the logo being "printed" */
+@keyframes badgeReveal {
+  to { opacity: 1; transform: scale(1); clip-path: inset(-40px); }
 }
-@keyframes ringIn { to { opacity: 1; transform: rotate(0deg) scale(1); } }
-
-/* Double-rail spine + arms, drawn like traces */
-.loader-rail {
-  fill: none; stroke: var(--gold, #C9A84C); stroke-width: 2.6; stroke-linecap: round;
-  stroke-dasharray: 95; stroke-dashoffset: 95;
-  animation: traceDraw 0.5s ease-out 1.0s forwards;
+/* One soft gold pulse once it's fully drawn */
+@keyframes badgeGlow {
+  0%, 100% { filter: drop-shadow(0 0 0 rgba(201,168,76,0)); }
+  50% { filter: drop-shadow(0 0 22px rgba(201,168,76,0.55)); }
 }
-.loader-rail + .loader-rail { animation-delay: 1.06s; }
-.loader-badge-e > path:not(.loader-rail) {
-  fill: none; stroke: var(--gold, #C9A84C); stroke-width: 5.5;
-  stroke-linecap: round; stroke-linejoin: round;
-  stroke-dasharray: 60; stroke-dashoffset: 60;
-  animation: traceDraw 0.45s ease-out 1.35s forwards;
-}
-.loader-badge-e > path:nth-of-type(4) { stroke-dasharray: 36; stroke-dashoffset: 36; animation-delay: 1.5s; }
-@keyframes traceDraw { to { stroke-dashoffset: 0; } }
-
-.loader-via { fill: var(--gold, #C9A84C); opacity: 0; animation: badgeIn 0.35s ease 1.85s forwards; }
-.loader-via-hollow {
-  fill: none; stroke: var(--gold, #C9A84C); stroke-width: 2.2; opacity: 0;
-  animation: badgeIn 0.35s ease 1.75s forwards;
-}
-.loader-badge-chip-group { opacity: 0; animation: badgeIn 0.4s ease 1.95s forwards; }
-.loader-badge-chip { fill: #0D0D0D; stroke: var(--gold, #C9A84C); stroke-width: 1.8; }
-.loader-chip-pins { fill: none; stroke: var(--gold, #C9A84C); stroke-width: 1.8; stroke-linecap: round; }
 
 .loader-name {
   font-family: 'Playfair Display', Georgia, serif;
@@ -124,27 +101,9 @@ body {
 @keyframes loaderReveal { to { opacity: 1; transform: translateY(0); } }
 @keyframes loaderBar { to { width: 100%; } }
 
-/* Repeat visits in the same browser tab get a quick fade instead of the full
-   reveal — see script.js, which adds this class before the loader paints. */
-#loader.loader-fast .loader-spark,
-#loader.loader-fast .loader-badge,
-#loader.loader-fast .loader-badge-ring,
-#loader.loader-fast .loader-rail,
-#loader.loader-fast .loader-badge-e path,
-#loader.loader-fast .loader-via,
-#loader.loader-fast .loader-via-hollow,
-#loader.loader-fast .loader-badge-chip-group,
-#loader.loader-fast .loader-name,
-#loader.loader-fast .loader-sub,
-#loader.loader-fast .loader-bar-fill {
-  animation-duration: 0.3s !important;
-  animation-delay: 0s !important;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .loader-spark { display: none; }
-  .loader-badge, .loader-badge-ring, .loader-rail, .loader-badge-e path,
-  .loader-via, .loader-via-hollow, .loader-badge-chip-group,
+  .loader-badge,
   .loader-name, .loader-sub, .loader-bar-fill {
     animation-duration: 0.01ms !important; animation-delay: 0s !important;
   }
