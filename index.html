@@ -84,16 +84,35 @@
     <div class="loader-spark" style="--angle:270deg; animation-delay:0.12s"></div>
     <div class="loader-spark" style="--angle:315deg; animation-delay:0.03s"></div>
 
-    <svg class="loader-badge" viewBox="0 0 200 200" width="128" height="128" aria-hidden="true">
-      <circle class="loader-badge-ring" cx="100" cy="100" r="82" />
-      <circle class="loader-badge-ring loader-badge-ring-2" cx="100" cy="100" r="72" />
+    <svg class="loader-badge" viewBox="0 0 240 240" width="200" height="200" aria-hidden="true">
+      <!-- Thick circuit "C" bracket, open on the right where the E's arms exit -->
+      <circle class="loader-badge-ring" cx="120" cy="120" r="94" />
+
+      <!-- Double-rail spine (the "two parallel rails" look from the reference) -->
       <g class="loader-badge-e">
-        <path d="M79 62 V138 M79 62 H121 M79 100 H111 M79 138 H121" />
-        <circle cx="121" cy="62" r="4.5" />
-        <circle cx="111" cy="100" r="4.5" />
-        <circle cx="121" cy="138" r="4.5" />
+        <path class="loader-rail" d="M97 75 V165" />
+        <path class="loader-rail" d="M104 75 V165" />
+
+        <!-- Top arm: spine → rounded step up → via -->
+        <path d="M104 86 H138 V69" />
+        <circle class="loader-via-hollow" cx="121" cy="86" r="4" />
+        <circle class="loader-via" cx="138" cy="69" r="6.5" />
+
+        <!-- Middle arm: shorter, no step -->
+        <path d="M104 120 H131" />
+        <circle class="loader-via" cx="131" cy="120" r="6" />
+
+        <!-- Bottom arm: mirrors the top -->
+        <path d="M104 154 H138 V171" />
+        <circle class="loader-via-hollow" cx="121" cy="154" r="4" />
+        <circle class="loader-via" cx="138" cy="171" r="6.5" />
       </g>
-      <rect class="loader-badge-chip" x="51" y="90" width="16" height="20" rx="2" />
+
+      <!-- IC chip with comb pins, sitting on the spine -->
+      <g class="loader-badge-chip-group">
+        <rect class="loader-badge-chip" x="68" y="104" width="26" height="26" rx="3" />
+        <path class="loader-chip-pins" d="M62 110 H68 M62 117 H68 M62 124 H68 M62 131 H68 M81 98 V104 M81 134 V140" />
+      </g>
     </svg>
   </div>
   <div class="loader-name">Seif Eldaby</div>
