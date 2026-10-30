@@ -88,13 +88,13 @@ body {
   font-weight: 700; color: var(--gold, #C9A84C);
   letter-spacing: 3px;
   opacity: 0; transform: translateY(16px);
-  animation: loaderReveal 0.9s ease 3.7s forwards;
+  animation: loaderReveal 0.9s ease 2.5s forwards;
 }
 .loader-sub {
   font-size: 0.85rem; letter-spacing: 4px;
   text-transform: uppercase; color: #8A8680;
   margin-top: 0.8rem; opacity: 0;
-  animation: loaderReveal 0.9s ease 4.2s forwards;
+  animation: loaderReveal 0.9s ease 3s forwards;
 }
 .loader-bar { width: 140px; height: 1px; background: rgba(201,168,76,0.2); margin-top: 2.2rem; overflow: hidden; }
 .loader-bar-fill { height: 100%; width: 0; background: var(--gold, #C9A84C); animation: loaderBar 2.2s ease 4.5s forwards; }
