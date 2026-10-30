@@ -56,13 +56,14 @@
   ]
 }
 </script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D'/><text x='50' y='72' font-size='65' font-family='serif' font-weight='900' fill='%23C9A84C' text-anchor='middle'>S</text></svg>">
+<link rel="icon" id="siteFavicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D'/><text x='50' y='72' font-size='65' font-family='serif' font-weight='900' fill='%23C9A84C' text-anchor='middle'>S</text></svg>">
 <meta name="theme-color" content="#0D0D0D">
 <!-- Discourage browsers from serving a long-lived cached copy of this page -->
 <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <!-- IMPORTANT: replace this with your actual live URL once you know it -->
+<link rel="apple-touch-icon" id="siteAppleIcon" href="assets/logo.png">
 <link rel="canonical" href="https://seifeldaby.github.io/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -83,7 +84,7 @@
     <div class="loader-spark" style="--angle:270deg; animation-delay:0.12s"></div>
     <div class="loader-spark" style="--angle:315deg; animation-delay:0.03s"></div>
 
-    <img class="loader-badge" src="assets/loader-logo-gold.png" width="200" height="203" alt="" aria-hidden="true" decoding="async">
+    <img class="loader-badge" data-logo="assets/logo" width="200" height="203" alt="" aria-hidden="true" decoding="async">
   </div>
   <div class="loader-name">Seif Eldaby</div>
   <div class="loader-sub">Electrical & Electronics Engineer</div>
@@ -92,7 +93,7 @@
 
 <!-- DESKTOP NAV -->
 <nav>
-  <div class="nav-logo" onclick="showPage('home')">Seif Eldaby</div>
+  <div class="nav-logo" onclick="showPage('home')"><img class="site-logo nav-logo-img" data-logo="assets/logo" alt="" aria-hidden="true" decoding="async"><span>Seif Eldaby</span></div>
   <div class="nav-links">
     <button class="active" onclick="showPage('home')">Home</button>
     <button onclick="showPage('about')">About</button>
@@ -393,6 +394,7 @@
   </div>
 
   <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
     <span>© 2026 Seif Eldaby</span>
     <span>Electrical & Electronics Engineer · Assiut University</span>
   </footer>
@@ -528,6 +530,7 @@
   </div>
 
   <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
     <span>© 2026 Seif Eldaby</span>
     <span>Electrical & Electronics Engineer · Assiut University</span>
   </footer>
@@ -818,6 +821,7 @@
   </div>
 
   <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
     <span>© 2026 Seif Eldaby</span>
     <span>Electrical & Electronics Engineer · Assiut University</span>
   </footer>
@@ -925,6 +929,7 @@
   </div>
 
   <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
     <span>© 2026 Seif Eldaby</span>
     <span>Electrical & Electronics Engineer · Assiut University</span>
   </footer>
@@ -961,6 +966,7 @@
   </div>
 
   <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
     <span>© 2026 Seif Eldaby</span>
     <span>Electrical & Electronics Engineer · Assiut University</span>
   </footer>
