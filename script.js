@@ -33,20 +33,11 @@
 })();
 
 // ── LOADER ──
-// Full circuit/logo reveal plays once per browser tab session; if this tab
-// already saw it (e.g. navigating around and hitting refresh), later loads
-// get a quick fade instead of waiting through the whole animation again.
+// Full circuit/logo reveal plays every time the page loads.
 (function () {
   const loaderEl = document.getElementById('loader');
   if (!loaderEl) return;
-  const seenBefore = sessionStorage.getItem('introPlayed') === '1';
-  if (seenBefore) {
-    loaderEl.classList.add('loader-fast');
-    setTimeout(() => loaderEl.classList.add('hide'), 450);
-  } else {
-    try { sessionStorage.setItem('introPlayed', '1'); } catch (e) {}
-    setTimeout(() => loaderEl.classList.add('hide'), 4100);
-  }
+  setTimeout(() => loaderEl.classList.add('hide'), 4100);
 })();
 
 // ── TYPING EFFECT ──
