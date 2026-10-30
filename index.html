@@ -70,8 +70,32 @@
 </head>
 <body>
 
-<!-- LOADER -->
+<!-- LOADER — a lightweight CSS/SVG "logo reveal" intro (gold circuit lines
+     converging into a PCB-styled emblem, then the name) instead of a video file,
+     so it plays instantly with zero extra network weight. -->
 <div id="loader">
+  <div class="loader-stage">
+    <div class="loader-spark" style="--angle:0deg;   animation-delay:0.00s"></div>
+    <div class="loader-spark" style="--angle:45deg;  animation-delay:0.04s"></div>
+    <div class="loader-spark" style="--angle:90deg;  animation-delay:0.08s"></div>
+    <div class="loader-spark" style="--angle:135deg; animation-delay:0.02s"></div>
+    <div class="loader-spark" style="--angle:180deg; animation-delay:0.10s"></div>
+    <div class="loader-spark" style="--angle:225deg; animation-delay:0.06s"></div>
+    <div class="loader-spark" style="--angle:270deg; animation-delay:0.12s"></div>
+    <div class="loader-spark" style="--angle:315deg; animation-delay:0.03s"></div>
+
+    <svg class="loader-badge" viewBox="0 0 200 200" width="128" height="128" aria-hidden="true">
+      <circle class="loader-badge-ring" cx="100" cy="100" r="82" />
+      <circle class="loader-badge-ring loader-badge-ring-2" cx="100" cy="100" r="72" />
+      <g class="loader-badge-e">
+        <path d="M79 62 V138 M79 62 H121 M79 100 H111 M79 138 H121" />
+        <circle cx="121" cy="62" r="4.5" />
+        <circle cx="111" cy="100" r="4.5" />
+        <circle cx="121" cy="138" r="4.5" />
+      </g>
+      <rect class="loader-badge-chip" x="51" y="90" width="16" height="20" rx="2" />
+    </svg>
+  </div>
   <div class="loader-name">Seif Eldaby</div>
   <div class="loader-sub">Electrical & Electronics Engineer</div>
   <div class="loader-bar"><div class="loader-bar-fill"></div></div>
@@ -219,7 +243,7 @@
       <div class="exp-item reveal">
         <div class="exp-meta"><div class="exp-date">Apr 2026 – Present</div><div class="exp-company">AntX</div></div>
         <div class="exp-content">
-          <div class="exp-role">Hardware Design & Manufacturing </div>
+          <div class="exp-role">Hardware Design & Manufacturing (Student → Intern → Current Role)</div>
           <div class="exp-desc">Completed a 130-hour Foundation hardware program covering circuits, digital electronics, PCB design, hardware manufacturing, C programming, and AVR microcontrollers; progressed from student to intern to an ongoing hands-on role. Design and manufacture PCBs, with work spanning hardware, digital electronics, and course support.</div>
           <div class="exp-tags"><span class="tag">PCB Design</span><span class="tag">AVR</span><span class="tag">Digital Electronics</span></div>
         </div>
