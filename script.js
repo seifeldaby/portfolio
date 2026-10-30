@@ -45,7 +45,7 @@
     setTimeout(() => loaderEl.classList.add('hide'), 450);
   } else {
     try { sessionStorage.setItem('introPlayed', '1'); } catch (e) {}
-    setTimeout(() => loaderEl.classList.add('hide'), 3400);
+    setTimeout(() => loaderEl.classList.add('hide'), 4100);
   }
 })();
 
