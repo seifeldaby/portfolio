@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-REX08F2QZ1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-REX08F2QZ1');
+</script>
+<title>Seif Eldaby — Portfolio</title>
+<meta name="description" content="Seif Eldaby — Electrical & Electronics Engineer, Autonomous Systems, PCB Design, Assiut University">
+
+<!-- ── OPEN GRAPH / SOCIAL PREVIEW ──
+     IMPORTANT: Replace "https://seifeldaby.github.io" below with your actual
+     live site URL (your GitHub Pages URL or custom domain) once you know it. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Seif Eldaby — Portfolio">
+<meta property="og:description" content="Electrical & Electronics Engineering student building autonomous systems, PCBs, and hardware — 7th globally at ICRA 2026 RoboRacer.">
+<meta property="og:url" content="https://seifeldaby.github.io/">
+<meta property="og:image" content="https://seifeldaby.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seif Eldaby — Portfolio">
+<meta name="twitter:description" content="Electrical & Electronics Engineering student building autonomous systems, PCBs, and hardware — 7th globally at ICRA 2026 RoboRacer.">
+<meta name="twitter:image" content="https://seifeldaby.github.io/assets/og-image.png">
+
+<!-- ── STRUCTURED DATA (Google Search) ── -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Seif Elden Mostafa Eldaby",
+  "url": "https://seifeldaby.github.io/",
+  "image": "https://seifeldaby.github.io/assets/og-image.png",
+  "jobTitle": "Electrical & Electronics Engineering Student",
+  "email": "mailto:seif123eldaby@gmail.com",
+  "telephone": "+201551276259",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Assiut",
+    "addressCountry": "EG"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Assiut University"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/seif-eldaby",
+    "https://github.com/seifeldaby"
+  ]
+}
+</script>
+<link rel="icon" id="siteFavicon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230D0D0D'/><text x='50' y='72' font-size='65' font-family='serif' font-weight='900' fill='%23C9A84C' text-anchor='middle'>S</text></svg>">
+<meta name="theme-color" content="#0D0D0D">
+<!-- Discourage browsers from serving a long-lived cached copy of this page -->
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- IMPORTANT: replace this with your actual live URL once you know it -->
+<link rel="apple-touch-icon" id="siteAppleIcon" href="assets/logo.png">
+<link rel="canonical" href="https://seifeldaby.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Marks returning visitors (same browser session) BEFORE the page paints, so the loader can skip its long animation -->
+<script>try{if(sessionStorage.getItem('introPlayed')==='1')document.documentElement.classList.add('intro-seen');}catch(e){}</script>
+<link rel="stylesheet" href="style.css?v=20261031">
+</head>
+<body>
+
+<!-- LOADER — a lightweight "logo reveal" intro (gold sparks converging into your
+     circuit-E logo, then the name) — a small PNG instead of a video file. -->
+<div id="loader">
+  <div class="loader-stage">
+    <div class="loader-spark" style="--angle:0deg;   animation-delay:0.00s"></div>
+    <div class="loader-spark" style="--angle:45deg;  animation-delay:0.04s"></div>
+    <div class="loader-spark" style="--angle:90deg;  animation-delay:0.08s"></div>
+    <div class="loader-spark" style="--angle:135deg; animation-delay:0.02s"></div>
+    <div class="loader-spark" style="--angle:180deg; animation-delay:0.10s"></div>
+    <div class="loader-spark" style="--angle:225deg; animation-delay:0.06s"></div>
+    <div class="loader-spark" style="--angle:270deg; animation-delay:0.12s"></div>
+    <div class="loader-spark" style="--angle:315deg; animation-delay:0.03s"></div>
+
+    <img class="loader-badge" data-logo="assets/logo" width="200" height="203" alt="" aria-hidden="true" decoding="async">
+  </div>
+  <div class="loader-name">Seif Eldaby</div>
+  <div class="loader-sub">Electrical & Electronics Engineer</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- DESKTOP NAV -->
+<nav>
+  <div class="nav-logo" onclick="showPage('home')"><img class="site-logo nav-logo-img" data-logo="assets/logo" alt="" aria-hidden="true" decoding="async"><span>Seif Eldaby</span></div>
+  <div class="nav-links">
+    <button class="active" onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About</button>
+    <button onclick="showPage('services')">Services</button>
+    <button onclick="showPage('achievements')">Achievements</button>
+    <button onclick="showPage('portfolio')">Portfolio</button>
+    <button onclick="showPage('contact')">Contact</button>
+    <div class="theme-switch" id="themeSwitch" role="button" tabindex="0" aria-label="Toggle light and dark theme" aria-pressed="false" title="Toggle theme">
+      <div class="theme-switch-thumb" id="themeSwitchThumb" aria-hidden="true">🌙</div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav">
+  <button class="active" onclick="showPage('home')">Home</button>
+  <button onclick="showPage('about')">About</button>
+  <button onclick="showPage('services')">Services</button>
+  <button onclick="showPage('achievements')">Achieve</button>
+  <button onclick="showPage('portfolio')">Portfolio</button>
+  <button onclick="showPage('contact')">Contact</button>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-tag"><span id="typingText"></span><span class="typing-cursor"></span></div>
+      <h1>Seif<br><span>Eldaby</span></h1>
+      <p class="hero-bio">Electrical & Electronics Engineering student at Assiut University — building autonomous systems, designing high-precision PCBs, and leading engineering teams. 7th globally at ICRA 2026 RoboRacer in the team's debut year.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn-primary">Get In Touch</a>
+        <a href="https://linkedin.com/in/seif-eldaby" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-frame" id="photoFrame">
+        <div class="photo-glow"></div>
+        <img src="assets/seif-photo.png" alt="Seif Eldaby" id="profilePhoto" />
+        <div class="photo-shine"></div>
+        <div class="photo-badge">
+          <div class="badge-num">7th</div>
+          <div class="badge-txt">Global · ICRA 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat reveal reveal-delay-1"><div class="stat-num">90+</div><div class="stat-label">PCBs Assembled</div></div>
+    <div class="stat reveal reveal-delay-2"><div class="stat-num">7th</div><div class="stat-label">Global · ICRA 2026</div></div>
+    <div class="stat reveal reveal-delay-3"><div class="stat-num">4+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat reveal reveal-delay-4"><div class="stat-num">150+</div><div class="stat-label">Students Taught</div></div>
+  </div>
+
+  <!-- Home: About Teaser -->
+  <div class="section-wrap" style="padding-top: 1.5rem;">
+    <div class="home-about reveal">
+      <div class="home-about-eyebrow">Who I Am</div>
+      <p class="home-about-text">I'm an Electrical & Electronics Engineering student at Assiut University who genuinely loves the moment a circuit you designed on paper actually powers on. Over the last four years that's meant soldering 90+ PCBs by hand, teaching 150+ students how electronics work, and — most recently — building the autonomous stack that took my team to 7th place globally at ICRA 2026, in our very first year competing. I move comfortably between the hardware bench and the codebase: designing a board in Altium one day, debugging a ROS 2 SLAM pipeline the next.</p>
+      <a href="#about" class="home-about-link">Read my full story ↗</a>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Home: What I Do Teaser -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Focus Areas</div>
+        <div class="section-title">What I Do</div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1" data-num="01">
+        <div class="service-icon">📐</div>
+        <div class="service-name">PCB & Hardware Design</div>
+        <div class="service-desc">Schematic capture, layout, and full manufacturing files — from concept to a working board in your hands.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2" data-num="02">
+        <div class="service-icon">🤖</div>
+        <div class="service-name">Autonomous Systems</div>
+        <div class="service-desc">SLAM, sensor fusion, and control pipelines for robotics — the software that lets hardware think for itself.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3" data-num="03">
+        <div class="service-icon">🧠</div>
+        <div class="service-name">AI & Data</div>
+        <div class="service-desc">Applied machine learning — from computer vision models to data-driven decision tools.</div>
+      </div>
+    </div>
+    <div class="home-view-all">
+      <a href="#services" class="btn-outline">Go to Services ↗</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <!-- Education -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Academic</div>
+        <div class="section-title">Education</div>
+      </div>
+    </div>
+    <div class="edu-card reveal">
+      <div>
+        <div class="edu-degree">Bachelor of Engineering</div>
+        <div class="edu-institution">Assiut University</div>
+        <div class="edu-detail">Electrical & Electronics Engineering</div>
+      </div>
+      <div class="edu-date">2024 – 2029<br>Assiut, Egypt</div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Experience -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Career</div>
+        <div class="section-title">Experience</div>
+      </div>
+    </div>
+    <div class="exp-list">
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Apr 2026 – Present</div><div class="exp-company">AntX</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Hardware Design & Manufacturing (Student → Intern → Current Role)</div>
+          <div class="exp-desc">Completed a 130-hour Foundation hardware program covering circuits, digital electronics, PCB design, hardware manufacturing, C programming, and AVR microcontrollers; progressed from student to intern to an ongoing hands-on role. Design and manufacture PCBs, with work spanning hardware, digital electronics, and course support.</div>
+          <div class="exp-tags"><span class="tag">PCB Design</span><span class="tag">AVR</span><span class="tag">Digital Electronics</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Jun 2026 – Sep 2026</div><div class="exp-company">Spaceborn Autonomy</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Hardware & Integration Intern, Engineering Department</div>
+          <div class="exp-desc">Selected after technical interviews for a 3-month internship reporting to the Founder & CEO; joined the autonomous-systems engineering team and its GitHub organization. Developed an ESC (Electronic Speed Controller) for a flight controller and contributed to other hardware integration work.</div>
+          <div class="exp-tags"><span class="tag">Hardware Integration</span><span class="tag">ESC Design</span><span class="tag">Remote</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Dec 2025 – Present</div><div class="exp-company">Assiut Motorsport</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Autonomous Systems Engineer</div>
+          <div class="exp-desc">Achieved 7th place globally out of 73 international teams at RoboRacer Sim Racing League — ICRA 2026. Built full-stack autonomous vehicle software using ROS 2 and Docker. Implemented SLAM, Particle Filter, LiDAR, and rf2o odometry pipeline.</div>
+          <div class="exp-tags"><span class="tag">ROS 2</span><span class="tag">SLAM</span><span class="tag">LiDAR</span><span class="tag">Docker</span><span class="tag">Python</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Jan 2025 – Feb 2026</div><div class="exp-company">Magnum Egypt</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Curriculum Developer & Lead Instructor</div>
+          <div class="exp-desc">Developed and delivered technical curricula for Arduino and electronics courses to 20+ students per cohort. Designed hands-on labs and assessments.</div>
+          <div class="exp-tags"><span class="tag">Arduino</span><span class="tag">Curriculum Design</span><span class="tag">Teaching</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Jan 2023 – Jan 2025</div><div class="exp-company">Magnum Egypt</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Technical Instructor & Assistant</div>
+          <div class="exp-desc">Supported lead instructors in technical workshops; supervised and evaluated student project work.</div>
+          <div class="exp-tags"><span class="tag">Teaching</span><span class="tag">Mentoring</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Aug 2022 – Feb 2026</div><div class="exp-company">Magnum Egypt</div></div>
+        <div class="exp-content">
+          <div class="exp-role">PCB Assembly & Repair Technician</div>
+          <div class="exp-desc">Assembled and soldered 90+ high-precision PCBs across multiple large-scale production projects. Diagnosed and repaired faulty electrical components.</div>
+          <div class="exp-tags"><span class="tag">PCB Assembly</span><span class="tag">Soldering</span><span class="tag">Troubleshooting</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">2022</div><div class="exp-company">Idea Space</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Technical Support & Instructor Assistant</div>
+          <div class="exp-desc">Manufactured and assembled PCBs; maintained electrical components; supervised student work during competitions.</div>
+          <div class="exp-tags"><span class="tag">PCB</span><span class="tag">Competitions</span><span class="tag">Mentoring</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">2021</div><div class="exp-company">Idea Space</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Volunteer Technical Assistant</div>
+          <div class="exp-desc">Assembled ~50 PCBs for project-based training programs; co-supervised two national-level technical competitions.</div>
+          <div class="exp-tags"><span class="tag">PCB</span><span class="tag">Volunteering</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Sep – Nov 2025</div><div class="exp-company">Assiut Motorsport</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Team Leader — Kickdown Competition</div>
+          <div class="exp-desc">Managed a multidisciplinary engineering team — assigned tasks, tracked milestones, and delivered presentations at internal reviews.</div>
+          <div class="exp-tags"><span class="tag">Leadership</span><span class="tag">Project Management</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Mar 2025 – Jan 2026</div><div class="exp-company">Assiut Motorsport</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Engine Division Member</div>
+          <div class="exp-desc">Contributed to Formula Student car development within the Engine Division.</div>
+          <div class="exp-tags"><span class="tag">Formula Student</span><span class="tag">Engine Systems</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Dec 2024 – Present</div><div class="exp-company">Astro</div></div>
+        <div class="exp-content">
+          <div class="exp-role">Vice President & Head of Operations</div>
+          <div class="exp-desc">Oversee strategic planning and day-to-day operations. Previously served as SolidWorks Instructor, teaching CAD design and developing training materials.</div>
+          <div class="exp-tags"><span class="tag">Leadership</span><span class="tag">Strategy</span><span class="tag">SolidWorks</span></div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-meta"><div class="exp-date">Nov 2024 – Mar 2025</div><div class="exp-company">Astro</div></div>
+        <div class="exp-content">
+          <div class="exp-role">SolidWorks Instructor</div>
+          <div class="exp-desc">Taught CAD design using SolidWorks to organization members; developed structured training materials.</div>
+          <div class="exp-tags"><span class="tag">SolidWorks</span><span class="tag">CAD</span><span class="tag">Teaching</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Skills -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">03</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Toolkit</div>
+        <div class="section-title">Skills</div>
+      </div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category reveal reveal-delay-1">
+        <div class="skill-cat-title">Hardware & PCB</div>
+        <div class="skill-pills">
+          <span class="skill-pill">KiCAD</span><span class="skill-pill">Altium Designer</span>
+          <span class="skill-pill">EasyEDA</span><span class="skill-pill">PCB Assembly</span>
+          <span class="skill-pill">SMD Soldering</span><span class="skill-pill">Circuit Prototyping</span>
+          <span class="skill-pill">Arduino</span><span class="skill-pill">ESP32</span>
+          <span class="skill-pill">Electrical Troubleshooting</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-2">
+        <div class="skill-cat-title">Software & Tools</div>
+        <div class="skill-pills">
+          <span class="skill-pill">ROS 2</span><span class="skill-pill">Docker</span>
+          <span class="skill-pill">Python</span><span class="skill-pill">C++</span>
+          <span class="skill-pill">MATLAB</span><span class="skill-pill">LTSpice</span>
+          <span class="skill-pill">SolidWorks</span><span class="skill-pill">AutoCAD</span>
+          <span class="skill-pill">Git</span><span class="skill-pill">OpenCV</span>
+          <span class="skill-pill">TensorFlow</span><span class="skill-pill">Keras</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-3">
+        <div class="skill-cat-title">Technical Domains</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Autonomous Systems</span><span class="skill-pill">SLAM & Localization</span>
+          <span class="skill-pill">Analog Circuit Design</span><span class="skill-pill">Power Electronics</span>
+          <span class="skill-pill">Computer Vision</span><span class="skill-pill">Schematic Design</span>
+          <span class="skill-pill">Embedded Systems</span>
+        </div>
+      </div>
+      <div class="skill-category reveal reveal-delay-4">
+        <div class="skill-cat-title">Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Arabic — Native</span>
+          <span class="skill-pill">English — Professional</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CV -->
+  <div class="cv-btn-wrap">
+    <a href="assets/Seif_Eldaby_CV.pdf" download="Seif_Eldaby_CV.pdf" class="cv-card reveal">
+      <div>
+        <div class="cv-card-label">Download</div>
+        <div class="cv-card-title">Seif Eldaby — CV</div>
+        <div class="cv-card-sub">Full resume · PDF · Updated 2026</div>
+      </div>
+      <div class="cv-card-icon">↓</div>
+    </a>
+  </div>
+
+  <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: SERVICES
+══════════════════════════════════════ -->
+<div class="page" id="page-services">
+
+  <!-- Services Hero -->
+  <div class="section-wrap services-hero reveal">
+    <div class="services-hero-title">End-to-End PCB & Hardware Solutions</div>
+    <div class="services-hero-divider"></div>
+    <p class="services-hero-sub">From schematic capture and rapid prototyping to full assembly. Delivering reliable, up-to-2-layer printed circuit boards tailored for student projects, robotics, and embedded systems.</p>
+  </div>
+
+  <!-- My Services -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">What I Offer</div>
+        <div class="section-title">My Services</div>
+      </div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1" data-num="01">
+        <div class="service-image">
+          <img src="assets/services/pcb-design.png" alt="PCB Design & Routing" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="service-image-fallback">📐</div>
+        </div>
+        <div class="service-name">PCB Design & Routing</div>
+        <div class="service-desc">Professional schematic capture and PCB layout (up to 2 layers). Delivery of comprehensive manufacturing files including Gerbers, NC Drill files, Pick & Place data, and Bill of Materials (BOM).</div>
+        <div class="service-actions">
+          <a href="#contact" onclick="goToContactWithSubject(event, 'PCB Design & Routing Inquiry')" class="service-action">✉ Email</a>
+          <a href="https://wa.me/201551276259?text=Hi%20Seif%2C%20I%27m%20interested%20in%20PCB%20Design%20%26%20Routing" target="_blank" rel="noopener noreferrer" class="service-action">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-2" data-num="02">
+        <div class="service-image">
+          <img src="assets/services/prototyping.png" alt="Rapid Prototyping & Fabrication" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="service-image-fallback">⚙️</div>
+        </div>
+        <div class="service-name">Rapid Prototyping & Fabrication</div>
+        <div class="service-desc">Fast-turnaround manual fabrication (toner transfer etching & drilling) for rapid testing of single/double-sided boards, or managing professional manufacturing orders through standard fab houses.</div>
+        <div class="service-actions">
+          <a href="#contact" onclick="goToContactWithSubject(event, 'Rapid Prototyping & Fabrication Inquiry')" class="service-action">✉ Email</a>
+          <a href="https://wa.me/201551276259?text=Hi%20Seif%2C%20I%27m%20interested%20in%20Rapid%20Prototyping%20%26%20Fabrication" target="_blank" rel="noopener noreferrer" class="service-action">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div class="service-card reveal reveal-delay-3" data-num="03">
+        <div class="service-image">
+          <img src="assets/services/assembly.png" alt="Assembly & Hardware Debugging" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="service-image-fallback">🔧</div>
+        </div>
+        <div class="service-name">Assembly & Hardware Debugging</div>
+        <div class="service-desc">Precise soldering for both SMD and THT components. Comprehensive hardware debugging, power routing validation, and functional testing to ensure a reliable final product.</div>
+        <div class="service-actions">
+          <a href="#contact" onclick="goToContactWithSubject(event, 'Assembly & Hardware Debugging Inquiry')" class="service-action">✉ Email</a>
+          <a href="https://wa.me/201551276259?text=Hi%20Seif%2C%20I%27m%20interested%20in%20Assembly%20%26%20Hardware%20Debugging" target="_blank" rel="noopener noreferrer" class="service-action">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Tools & Tech Stack -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Stack</div>
+        <div class="section-title">Software & Tools I Use</div>
+      </div>
+    </div>
+    <div class="tools-grid reveal">
+      <div class="tool-item">
+        <div class="tool-logo">
+          <img src="assets/tools/altium.png" alt="Altium Designer" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="tool-logo-fallback">🖼️</div>
+        </div>
+        <div class="tool-name">Altium Designer</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo">
+          <img src="assets/tools/kicad.png" alt="KiCad" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="tool-logo-fallback">🖼️</div>
+        </div>
+        <div class="tool-name">KiCad</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo">
+          <img src="assets/tools/easyeda.png" alt="EasyEDA" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="tool-logo-fallback">🖼️</div>
+        </div>
+        <div class="tool-name">EasyEDA</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo">
+          <img src="assets/tools/proteus.png" alt="Proteus" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="tool-logo-fallback">🖼️</div>
+        </div>
+        <div class="tool-name">Proteus</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo">
+          <img src="assets/tools/ltspice.png" alt="LTspice" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="tool-logo-fallback">🖼️</div>
+        </div>
+        <div class="tool-name">LTspice</div>
+      </div>
+      <div class="tool-item">
+        <div class="tool-logo">
+          <img src="assets/tools/multisim.png" alt="Multisim" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="tool-logo-fallback">🖼️</div>
+        </div>
+        <div class="tool-name">Multisim</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- CTA Banner -->
+  <div class="section-wrap">
+    <div class="services-cta reveal">
+      <div class="services-cta-title">Want to see my work in action?</div>
+      <p class="services-cta-desc">Explore my dedicated Projects page to see detailed case studies of my recent hardware builds, circuit simulations, and fully assembled PCBs.</p>
+      <button class="btn-primary services-cta-btn" onclick="showPage('portfolio')">View My Projects</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: ACHIEVEMENTS
+══════════════════════════════════════ -->
+<div class="page" id="page-achievements">
+
+  <!-- Certifications -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Credentials</div>
+        <div class="section-title">Certifications</div>
+      </div>
+    </div>
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">01</span>
+        <span class="subsection-title">PCB & Hardware</span>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal reveal-delay-4">
+          <a href="assets/certificates/CSWA_SolidWorks_CAD_Design_Associate.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/CSWA_SolidWorks_CAD_Design_Associate.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🏅</div>
+            <div class="cert-name">CSWA — SolidWorks CAD Design Associate</div>
+            <div class="cert-issuer">Dassault Systèmes</div>
+            <div class="cert-date">Aug 2025</div>
+            <a href="https://drive.google.com/file/d/1m8E7y5927w9Rv85QwETeh07sHw4vvXS1/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-1">
+          <a href="assets/certificates/Professional_PCB_Design_Altium_Udemy.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/Professional_PCB_Design_Altium_Udemy.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🔧</div>
+            <div class="cert-name">Professional PCB Designer with Altium</div>
+            <div class="cert-issuer">Udemy</div>
+            <div class="cert-date">Mar 2026</div>
+            <a href="https://drive.google.com/file/d/185LbyW8GRwxqurnG2SmToxTHDvJvuG5i/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-2">
+          <a href="assets/certificates/Arduino_Workshop_Completion_Amper.png" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Arduino_Workshop_Completion_Amper.png" alt="Arduino Workshop Completion" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">⚡</div>
+            <div class="cert-name">Arduino Workshop Completion</div>
+            <div class="cert-issuer">Amper</div>
+            <a href="https://drive.google.com/file/d/1_Tjwy3aBblWy2yyqhuOZF0txkrx7jd5B/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-3">
+          <a href="assets/certificates/Electronics_Workshop_Completion_Amper.png" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Electronics_Workshop_Completion_Amper.png" alt="Electronics Workshop Completion" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🔌</div>
+            <div class="cert-name">Electronics Workshop Completion</div>
+            <div class="cert-issuer">Amper</div>
+            <a href="https://drive.google.com/file/d/1h3SqC_DXxq2dSL8hQFh61ONot48bft6Y/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-2">
+          <a href="assets/certificates/ESP32_Custom_PCB_Design_Workshop_IEEE.jpg" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/ESP32_Custom_PCB_Design_Workshop_IEEE.jpg" alt="PCB Design Workshop — EasyEDA / ESP32" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🔌</div>
+            <div class="cert-name">PCB Design Workshop — EasyEDA / ESP32</div>
+            <div class="cert-issuer">IEEE PPU Student Branch</div>
+            <div class="cert-date">May 2026</div>
+            <a href="https://drive.google.com/file/d/1AKIhCb1SNEF0_YG2mTNhGaVdZDv6N6Dd/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-3">
+          <a href="https://drive.google.com/drive/folders/10SG6sABF-4KixoRscQQbQczTTHOoq6gZ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/PCB_Design_Level_1_KiCAD_INNOVA.png" alt="PCB Design Level 1 — KiCAD" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=&quot;assets/certificates/PCB_Design_Level_1_KiCAD_INNOVA.jpg&quot;;}else{this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;;}"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🖥️</div>
+            <div class="cert-name">PCB Design Level 1 — KiCAD</div>
+            <div class="cert-issuer">INNOVA</div>
+            <a href="https://drive.google.com/drive/folders/10SG6sABF-4KixoRscQQbQczTTHOoq6gZ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-1">
+          <a href="https://drive.google.com/file/d/1qGG4IVmsiNvOOGE2C2UyB08fSgvNJX01/view" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Technical_Training_Certificate.png" alt="Technical Training Certificate" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=&quot;assets/certificates/Technical_Training_Certificate.jpg&quot;;}else{this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;;}"></a>
+          <div class="cert-body">
+            <div class="cert-icon">📜</div>
+            <div class="cert-name">Technical Training Certificate</div>
+            <div class="cert-issuer">Seif Elden Mostafa</div>
+            <a href="https://drive.google.com/file/d/1qGG4IVmsiNvOOGE2C2UyB08fSgvNJX01/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">02</span>
+        <span class="subsection-title">Robotics & Autonomous Systems</span>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal reveal-delay-3">
+          <a href="assets/certificates/ICRA_2026_RoboRacer_League_Participation.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/ICRA_2026_RoboRacer_League_Participation.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🏎️</div>
+            <div class="cert-name">ICRA 2026 RoboRacer Sim Racing League — Participation</div>
+            <div class="cert-issuer">ICRA 2026</div>
+            <div class="cert-date">2026</div>
+            <a href="https://drive.google.com/file/d/1QijNmlBold4RWhsX9_3n2HtpSG4mGQuS/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-4">
+          <a href="assets/certificates/Assiut_Motorsport_Kickdown_2025_Participation.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/Assiut_Motorsport_Kickdown_2025_Participation.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🏎️</div>
+            <div class="cert-name">Assiut Motorsport — Kickdown 2025 Participation</div>
+            <div class="cert-issuer">Assiut Motorsport</div>
+            <div class="cert-date">2025</div>
+            <a href="https://drive.google.com/file/d/11dnz2vqiBgpKTX2v1NMjuxZUaB7aCFE6/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-2">
+          <a href="assets/certificates/Certificate%20of%20Qualification%20-%205th%20International%20RoboRacer%20Sim%20Racing.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/Certificate%20of%20Qualification%20-%205th%20International%20RoboRacer%20Sim%20Racing.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🏅</div>
+            <div class="cert-name">Certificate of Qualification - 5th International RoboRacer Sim Racing</div>
+            <div class="cert-issuer">AutoDRIVE Ecosystem</div>
+            <div class="cert-date">Issued May 2026</div>
+            <a href="https://drive.google.com/file/d/1zdjG-qPXEYcDkwrVHnwvdgfLwhv1xhjq/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-1">
+          <a href="assets/certificates/Robotics_32Hrs_Appreciation_EME_ITIDA.png" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Robotics_32Hrs_Appreciation_EME_ITIDA.png" alt="Robotics Program (32hrs) — Appreciation" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🤖</div>
+            <div class="cert-name">Robotics Program (32hrs) — Appreciation</div>
+            <div class="cert-issuer">EME / ITIDA</div>
+            <a href="https://drive.google.com/file/d/1VdXmkJsVnvF1YVgwU4lGlrnxHln_0cl-/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">03</span>
+        <span class="subsection-title">AI & Data Science</span>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal reveal-delay-2">
+          <a href="assets/certificates/AI_for_Beginners_Almentor.jpg" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/AI_for_Beginners_Almentor.jpg" alt="AI for Beginners" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🤖</div>
+            <div class="cert-name">AI for Beginners</div>
+            <div class="cert-issuer">Almentor</div>
+            <div class="cert-date">Jun 2025</div>
+            <a href="https://drive.google.com/file/d/1C0xk8hATKwCBt-joMkAPpg_UKRcsIYRo/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-3">
+          <a href="assets/certificates/Basics_of_AI_and_ChatGPT_Almentor.jpg" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Basics_of_AI_and_ChatGPT_Almentor.jpg" alt="Basics of AI & ChatGPT Technology" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">💬</div>
+            <div class="cert-name">Basics of AI & ChatGPT Technology</div>
+            <div class="cert-issuer">Almentor</div>
+            <div class="cert-date">Jun 2025</div>
+            <a href="https://drive.google.com/file/d/1J8u1y1NkPEjtSlHNdh91TKHhTrxlWEIq/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-4">
+          <a href="assets/certificates/Machine_Learning_40Hrs_EME_ITIDA.jpg" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Machine_Learning_40Hrs_EME_ITIDA.jpg" alt="Machine Learning Program (40hrs)" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🧠</div>
+            <div class="cert-name">Machine Learning Program (40hrs)</div>
+            <div class="cert-issuer">EME / ITIDA</div>
+            <a href="https://drive.google.com/file/d/1Pb1ASgGguh2BISkE-bhDBTgdKWMh2HL-/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-4">
+          <a href="https://drive.google.com/drive/folders/1wEWh6Ynep_ecUzpopm-q8dNt1LkO5wQ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/AI_Data_Scientist_Track_DEPI.png" alt="AI & Data Scientist Track (Round 5) — IBM Curriculum" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=&quot;assets/certificates/AI_Data_Scientist_Track_DEPI.jpg&quot;;}else{this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;;}"></a>
+          <div class="cert-body">
+            <div class="cert-icon">📊</div>
+            <div class="cert-name">AI & Data Scientist Track (Round 5) — IBM Curriculum</div>
+            <div class="cert-issuer">Rowad Misr Al-Reqya / DEPI</div>
+            <div class="cert-date">Apr – Sep 2026</div>
+            <a href="https://drive.google.com/drive/folders/1wEWh6Ynep_ecUzpopm-q8dNt1LkO5wQ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-4">
+          <a href="assets/certificates/AWS_Educate_Program_Completion.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/AWS_Educate_Program_Completion.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">☁️</div>
+            <div class="cert-name">AWS Educate DECI Summer Program</div>
+            <div class="cert-issuer">AWS + MCIT</div>
+            <div class="cert-date">Jul 2023</div>
+            <a href="https://drive.google.com/file/d/1DZu0hriGx6DWoaZ3kQdfbt4cvJ20MYDq/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">04</span>
+        <span class="subsection-title">Professional Development & Competitions</span>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-card reveal reveal-delay-1">
+          <a href="assets/certificates/1st_Place_Better_Teacher_Competition.png" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/1st_Place_Better_Teacher_Competition.png" alt="1st Place — Better Teacher Competition" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🏆</div>
+            <div class="cert-name">1st Place — Better Teacher Competition</div>
+            <div class="cert-issuer">Competition</div>
+            <a href="https://drive.google.com/file/d/1-3kRoagcqFIFJXHvldSOf-L-DJDYHJAI/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-2">
+          <a href="assets/certificates/DECI_Level_Two_Nanodegree_Udacity_Oct_2023.jpg" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/DECI_Level_Two_Nanodegree_Udacity_Oct_2023.jpg" alt="Digital Egypt Cubs Initiative — Level 2 Nanodegree" loading="lazy" onerror="this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🎓</div>
+            <div class="cert-name">Digital Egypt Cubs Initiative — Level 2 Nanodegree</div>
+            <div class="cert-issuer">MCIT + Udacity</div>
+            <div class="cert-date">Oct 2023</div>
+            <a href="https://drive.google.com/file/d/1raFYWkILrGevCjHi71jdl6UlCdZqFYdL/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-3">
+          <a href="assets/certificates/DECI_Geeks_L2_Midyear_Competition_Microsoft_Feb_2023.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/DECI_Geeks_L2_Midyear_Competition_Microsoft_Feb_2023.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🏅</div>
+            <div class="cert-name">DECI-GEEKS L2 Midyear Competition</div>
+            <div class="cert-issuer">MCIT + Microsoft</div>
+            <div class="cert-date">Feb 2023</div>
+            <a href="https://drive.google.com/file/d/1yc24oAmT4S-tTYP8IS4ckE34SiS46vir/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-1">
+          <a href="assets/certificates/AAKRUTI_2025_Innovation_Competition.pdf" target="_blank" rel="noopener noreferrer" class="cert-thumb cert-thumb-pdf" data-pdf-src="assets/certificates/AAKRUTI_2025_Innovation_Competition.pdf"><div class="cert-pdf-preview"><span class="cert-pdf-icon">📄</span><span class="cert-pdf-label">PDF Certificate</span></div><canvas class="cert-pdf-canvas" aria-hidden="true"></canvas></a>
+          <div class="cert-body">
+            <div class="cert-icon">🎖️</div>
+            <div class="cert-name">AAKRUTI 2025 Innovation Competition</div>
+            <div class="cert-issuer">Dassault Systèmes / SolidWorks</div>
+            <div class="cert-date">2025</div>
+            <a href="https://drive.google.com/file/d/1gzOGlEGauKCBSq0jvNMq8Ou7LxNJxSXs/view" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-2">
+          <a href="https://drive.google.com/drive/folders/1ZIHusPchAxQmhEORW_7SAoxfZQASJMHv?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/ITIDA_Assiut_Summer_Training.png" alt="ITIDA Assiut Summer Training Program — Electronics & AI Tracks" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=&quot;assets/certificates/ITIDA_Assiut_Summer_Training.jpg&quot;;}else{this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;;}"></a>
+          <div class="cert-body">
+            <div class="cert-icon">☀️</div>
+            <div class="cert-name">ITIDA Assiut Summer Training Program — Electronics & AI Tracks</div>
+            <div class="cert-issuer">ITIDA</div>
+            <div class="cert-date">Aug 2026</div>
+            <a href="https://drive.google.com/drive/folders/1ZIHusPchAxQmhEORW_7SAoxfZQASJMHv?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+        <div class="cert-card reveal reveal-delay-3">
+          <a href="https://drive.google.com/drive/folders/1w9HckbM7QJODETL-hGkjOUx8Pvok5ZvF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-thumb"><img src="assets/certificates/Digital_Badge_McKinsey.png" alt="Digital Badge" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src=&quot;assets/certificates/Digital_Badge_McKinsey.jpg&quot;;}else{this.closest(&quot;.cert-thumb&quot;).style.display=&quot;none&quot;;}"></a>
+          <div class="cert-body">
+            <div class="cert-icon">🎖️</div>
+            <div class="cert-name">Digital Badge</div>
+            <div class="cert-issuer">McKinsey.org (via Credly)</div>
+            <div class="cert-date">Jul 2026</div>
+            <a href="https://drive.google.com/drive/folders/1w9HckbM7QJODETL-hGkjOUx8Pvok5ZvF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cert-link">View Certificate ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <div class="section-divider"></div>
+
+
+  <!-- Awards -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Recognition</div>
+        <div class="section-title">Awards & Honors</div>
+      </div>
+    </div>
+    <div class="awards-list">
+      <div class="award-item reveal"><div class="award-icon">🎓</div><div><div class="award-title">Selected — GCI Scholarship, GCI World 2026 September</div><div class="award-sub">Matsuo & Iwasawa Laboratory, The University of Tokyo · 2026</div></div></div>
+      <div class="award-item reveal"><div class="award-icon">🏆</div><div><div class="award-title">7th Place Globally — RoboRacer Sim Racing League, ICRA 2026</div><div class="award-sub">Assiut Motorsport Autonomous Team · 73 international teams · Debut year · 2026</div></div></div>
+      <div class="award-item reveal"><div class="award-icon">🎖️</div><div><div class="award-title">AAKRUTI Innovation Competition 2025</div><div class="award-sub">Dassault Systèmes / SolidWorks Worldwide Product Design Contest · 2025</div></div></div>
+      <div class="award-item reveal"><div class="award-icon">🏅</div><div><div class="award-title">DECI-GEEKS L2 Midyear Competition + Microsoft Ideation Camp</div><div class="award-sub">MCIT + Microsoft · February 2023</div></div></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: PORTFOLIO
+══════════════════════════════════════ -->
+<div class="page" id="page-portfolio">
+
+  <!-- Projects -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Work</div>
+        <div class="section-title">Projects</div>
+      </div>
+    </div>
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">01</span>
+        <span class="subsection-title">PCB & Hardware Design</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">🔌</div><div class="project-name">Custom ESP32 Development Board</div><div class="project-desc">Designed and manufactured a custom ESP32-based PCB from schematic to final board using EasyEDA — full SMD soldering.</div><a href="https://drive.google.com/drive/folders/1puzp1xZUmMg36VxH-O1sCALf186ebpB6?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-2" data-num="02"><div class="project-icon">🚗</div><div class="project-name">Autonomous Car — Custom Control & Power PCB</div><div class="project-desc">Designed and manually fabricated (chemical etching) a single custom PCB consolidating Jetson Nano, ESP32, IMU, encoder, LiDAR, depth camera, servo, and drive motors — with dual isolated battery systems and an ESP32-managed power-latching circuit. Assiut Motorsport / Atheer Control.</div><a href="https://drive.google.com/drive/folders/1aqNaNCfHPOQl2gYDoB0bJZGf4_GmNFlZ?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="03"><div class="project-icon">🏭</div><div class="project-name">PCB Production at Magnum Egypt</div><div class="project-desc">Led assembly of 90+ high-precision PCBs including smart wall switches and embedded systems boards.</div><a href="https://drive.google.com/drive/folders/1NsUU1EIdgv3NKAovYBSsDVfLSfEweD-D?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-1" data-num="04"><div class="project-icon">⚙️</div><div class="project-name">H-Bridge + PWM DC Motor Speed Control</div><div class="project-desc">MOSFET H-Bridge with 555-timer PWM speed control, tested on breadboard with a DC motor.</div><a href="https://drive.google.com/drive/folders/1OnF7B1wyBFMdWclc_ouUmZIE78-vnd_C?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-2" data-num="05"><div class="project-icon">🔋</div><div class="project-name">AC-DC Full-Wave Rectifier PCB</div><div class="project-desc">AC-to-DC rectifier with LM7805 regulator, plus a separate half-wave rectifier analysis — simulated and tested in Proteus.</div><a href="https://drive.google.com/drive/folders/1iIQ9-TlElpHAzpGwhVn35ga96g9psikI?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="06"><div class="project-icon">💡</div><div class="project-name">AC 220V to LED Driver</div><div class="project-desc">Transformer-based linear LED driver with bridge rectifier and series-parallel LED topology. Simulated in LTSpice.</div><a href="https://github.com/seifeldaby/AC-DC-LED-Driver-PCB" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a></div>
+        <div class="project-card reveal reveal-delay-1" data-num="07"><div class="project-icon">➗</div><div class="project-name">ALU — Arithmetic Logic Unit</div><div class="project-desc">Digital logic design and implementation of a custom Arithmetic Logic Unit.</div><a href="https://drive.google.com/drive/folders/1vsIRCCFnSGsOwyc2oBASRGOKnIcMwB_J?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-2" data-num="08"><div class="project-icon">⏱️</div><div class="project-name">24-Hour Digital Clock — Breadboard Version</div><div class="project-desc">No-microcontroller hardware-logic clock built with an NE555 timer, CD4026 counters, and AND-gate reset logic. Simulated and tested in Proteus, with full bilingual (Arabic/English) documentation and BOM.</div><a href="https://drive.google.com/drive/folders/1S95CjTIZY3ZYbnafJkVRpJpLgrBhFKPa?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="09"><div class="project-icon">🕐</div><div class="project-name">24-Hour Digital Clock — PCB Version</div><div class="project-desc">No-microcontroller PCB clock upgraded for timing accuracy: crystal oscillator + 4060 divider + flip-flop for a precise 1Hz reference, plus a 3-button manual time-setting system with LED digit separators.</div><a href="https://drive.google.com/drive/folders/1QGc486hVqPcVOxmtnIdgwk1R9cVP-_o9?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-1" data-num="10"><div class="project-icon">🔀</div><div class="project-name">2-Channel Relay Module (PCB)</div><div class="project-desc">2-channel relay module PCB with optocoupler isolation for safe switching of external loads.</div><a href="https://drive.google.com/drive/folders/11jAjNwfvSIh0ZthuOd90M96GDDBwCeQF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+        <div class="project-card reveal reveal-delay-2" data-num="11"><div class="project-icon">🏎️</div><div class="project-name">Formula Student — Engine Division</div><div class="project-desc">Contributed to Formula Student car development within the Engine Division at Assiut Motorsport.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+        <div class="project-card reveal reveal-delay-3" data-num="12"><div class="project-icon">🏭</div><div class="project-name">PCB Production at AntX</div><div class="project-desc">PCB design and manufacturing work as part of the AntX hardware program — from schematic and layout through to fabricated boards.</div><a href="https://drive.google.com/drive/folders/1jB0YlxYXvIaIqMazF7YZxUyoXL1dlClR?usp=drive_link" target="_blank" rel="noopener noreferrer" class="project-link">View Project Files ↗</a></div>
+      </div>
+    </div>
+
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">02</span>
+        <span class="subsection-title">Autonomous Systems & Robotics</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">⚡</div><div class="project-name">Autonomous Mapping & Localization</div><div class="project-desc">SLAM + Particle Filter + LiDAR odometry (rf2o) within ROS 2 / Docker. 7th globally at ICRA 2026 RoboRacer out of 73 teams.</div><a href="https://github.com/seifeldaby/Autonomous-Mapping-Localization" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a></div>
+        <div class="project-card reveal reveal-delay-2" data-num="02"><div class="project-icon">🛰️</div><div class="project-name">Sky Rock (Aegis) Anti-Drone System</div><div class="project-desc">Detection and countermeasure system for unauthorized drones, developed for ITC-Egypt 2026.</div><a href="#" class="project-link">GitHub — Coming Soon</a></div>
+      </div>
+    </div>
+
+    <div class="subsection reveal">
+      <div class="subsection-header">
+        <span class="subsection-num">03</span>
+        <span class="subsection-title">AI & Software</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1" data-num="01"><div class="project-icon">🧠</div><div class="project-name">Fashion-MNIST CNN Classifier</div><div class="project-desc">CNN in TensorFlow / Keras achieving ~91% test accuracy classifying 10 clothing categories. Built with OpenCV pipeline.</div><a href="https://github.com/seifeldaby/Fashion-MNIST-CNN-Classifier" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub ↗</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Blog -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">02</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Writing</div>
+        <div class="section-title">Blog</div>
+      </div>
+    </div>
+    <div class="blog-cards">
+      <div class="blog-card reveal reveal-delay-1" onclick="openBlog(0)">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">Building an Autonomous Racing Stack from Scratch with ROS 2</div>
+        <div class="blog-excerpt">How we went from zero to 7th globally at ICRA 2026 — architecture decisions, challenges, and lessons learned building a full autonomous vehicle pipeline.</div>
+        <div class="blog-read">Read Article →</div>
+      </div>
+      <div class="blog-card reveal reveal-delay-2" onclick="openBlog(1)">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">Designing Your First Custom ESP32 PCB with EasyEDA</div>
+        <div class="blog-excerpt">A practical walkthrough of schematic design, component selection, PCB routing, and SMD soldering for beginners moving beyond breakout boards.</div>
+        <div class="blog-read">Read Article →</div>
+      </div>
+      <div class="blog-card reveal reveal-delay-3" onclick="openBlog(2)">
+        <div class="blog-date">Coming Soon</div>
+        <div class="blog-title">SLAM & Localization: A Practical Guide for Robotics Students</div>
+        <div class="blog-excerpt">Breaking down the math and implementation behind Particle Filter localization, LiDAR odometry, and mapping pipelines used in real autonomous systems.</div>
+        <div class="blog-read">Read Article →</div>
+      </div>
+    </div>
+
+  <!-- Blog Article Overlay -->
+  <div class="blog-article" id="blogArticle">
+    <div class="blog-article-inner">
+      <button class="blog-back" onclick="closeBlog()">← Back to Portfolio</button>
+      <div class="blog-article-date" id="articleDate"></div>
+      <div class="blog-article-title" id="articleTitle"></div>
+      <div class="blog-article-divider"></div>
+      <div class="blog-article-body" id="articleBody"></div>
+    </div>
+  </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PAGE: CONTACT
+══════════════════════════════════════ -->
+<div class="page" id="page-contact">
+  <div class="section-wrap">
+    <div class="contact-hero reveal">
+      <div class="contact-title">Let's Build Something <span>Extraordinary</span></div>
+      <p class="contact-sub">Open to opportunities, collaborations, and engineering challenges.</p>
+    </div>
+
+    <form class="contact-form reveal" id="contactForm">
+      <div class="form-row">
+        <div class="form-field"><label>Name</label><input type="text" id="formName" name="name" placeholder="Your name" required /></div>
+        <div class="form-field"><label>Email</label><input type="email" id="formEmail" name="email" placeholder="your@email.com" required /></div>
+      </div>
+      <div class="form-field"><label>Subject</label><input type="text" id="formSubject" name="subject" placeholder="What's this about?" required /></div>
+      <div class="form-field"><label>Message</label><textarea id="formMessage" name="message" rows="5" placeholder="Tell me about your project or opportunity..." required></textarea></div>
+      <button type="submit" class="form-submit" id="formSubmit">Send Message</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+
+    <div class="contact-links reveal">
+      <a href="#" onclick="focusContactForm(event)" class="contact-link">✉ Email</a>
+      <a href="https://linkedin.com/in/seif-eldaby" target="_blank" rel="noopener noreferrer" class="contact-link">in LinkedIn</a>
+      <a href="https://github.com/seifeldaby" target="_blank" rel="noopener noreferrer" class="contact-link">⌥ GitHub</a>
+      <a href="tel:+201551276259" class="contact-link">✆ +20 155 127 6259</a>
+    </div>
+    <p style="font-size:0.8rem;color:var(--text-muted);text-align:center;margin-top:1.5rem;" class="reveal">Based in Assiut, Egypt · Available for remote & on-site</p>
+  </div>
+
+  <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- BACK TO TOP -->
+<a href="#" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">↑</a>
+
+<!-- Renders the first page of each PDF certificate straight onto the page (see script.js),
+     so certificates show fully in-site with no click-through needed. Loaded lazily per-card. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="script.js?v=20261031"></script>
+</body>
+</html>
