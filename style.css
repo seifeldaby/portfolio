@@ -817,3 +817,30 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   footer { padding: 1rem 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
   #backToTop { bottom: calc(var(--mob-nav-h) + 1rem); }
 }
+/* ── PHONE FIXES ── */
+.tools-grid > * { min-width: 0; }
+.loader-sub { text-align: center; padding: 0 1.25rem; box-sizing: border-box; max-width: 100%; }
+@media (max-width: 600px) {
+  .loader-stage { width: 170px; height: 170px; }
+  .loader-badge { width: 170px; }
+  .loader-name { font-size: clamp(2rem, 9vw, 2.6rem); letter-spacing: 2px; text-align: center; }
+  .loader-sub { font-size: 0.68rem; letter-spacing: 2.5px; line-height: 1.7; }
+
+  .tools-grid { gap: 1.4rem 0.8rem; }
+  .tool-logo { width: 100%; max-width: 112px; height: auto; aspect-ratio: 1 / 1; }
+  .tool-logo img { padding: 10px; }
+  .tool-name { font-size: 0.85rem; }
+
+  .certs-grid { grid-template-columns: 1fr; }
+}
+
+.cert-thumb, .cert-thumb:hover { text-decoration: none; color: inherit; }
+
+.mob-nav button { min-width: 0; }
+@media (max-width: 480px) {
+  .mob-nav button { font-size: 0.58rem; letter-spacing: 0.4px; padding: 8px 0; }
+}
+@media (max-width: 340px) {
+  .mob-nav button { font-size: 0.53rem; letter-spacing: 0; }
+  .loader-sub { letter-spacing: 1.5px; font-size: 0.62rem; }
+}
