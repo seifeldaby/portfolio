@@ -19,14 +19,14 @@
      NOTE: the site lives at https://seifeldaby.github.io/portfolio/ - update the 6 links below if the address changes. -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Seif Eldaby — Portfolio">
-<meta property="og:description" content="Electrical & Electronics Engineering student building autonomous systems, PCBs, and hardware — 7th globally at ICRA 2026 RoboRacer.">
+<meta property="og:description" content="Electrical & Electronics Engineering student designing and building PCBs and hardware — 90+ boards assembled, 7th globally at ICRA 2026 RoboRacer.">
 <meta property="og:url" content="https://seifeldaby.github.io/portfolio/">
 <meta property="og:image" content="https://seifeldaby.github.io/portfolio/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Seif Eldaby — Portfolio">
-<meta name="twitter:description" content="Electrical & Electronics Engineering student building autonomous systems, PCBs, and hardware — 7th globally at ICRA 2026 RoboRacer.">
+<meta name="twitter:description" content="Electrical & Electronics Engineering student designing and building PCBs and hardware — 90+ boards assembled, 7th globally at ICRA 2026 RoboRacer.">
 <meta name="twitter:image" content="https://seifeldaby.github.io/portfolio/assets/og-image.png">
 
 <!-- ── STRUCTURED DATA (Google Search) ── -->
@@ -68,7 +68,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <!-- Marks returning visitors (same browser session) BEFORE the page paints, so the loader can skip its long animation -->
 <script>try{if(sessionStorage.getItem('introPlayed')==='1')document.documentElement.classList.add('intro-seen');}catch(e){}</script>
-<link rel="stylesheet" href="style.css?v=20261031">
+<link rel="stylesheet" href="style.css?v=20261101">
 </head>
 <body>
 
@@ -101,6 +101,7 @@
     <button onclick="showPage('services')">Services</button>
     <button onclick="showPage('achievements')">Achievements</button>
     <button onclick="showPage('portfolio')">Portfolio</button>
+    <button onclick="showPage('reviews')">Reviews</button>
     <button onclick="showPage('contact')">Contact</button>
     <div class="theme-switch" id="themeSwitch" role="button" tabindex="0" aria-label="Toggle light and dark theme" aria-pressed="false" title="Toggle theme">
       <div class="theme-switch-thumb" id="themeSwitchThumb" aria-hidden="true">🌙</div>
@@ -115,6 +116,7 @@
   <button onclick="showPage('services')">Services</button>
   <button onclick="showPage('achievements')">Achieve</button>
   <button onclick="showPage('portfolio')">Portfolio</button>
+  <button onclick="showPage('reviews')">Reviews</button>
   <button onclick="showPage('contact')">Contact</button>
 </div>
 
@@ -126,7 +128,7 @@
     <div class="hero-content">
       <div class="hero-tag"><span id="typingText"></span><span class="typing-cursor"></span></div>
       <h1>Seif<br><span>Eldaby</span></h1>
-      <p class="hero-bio">Electrical & Electronics Engineering student at Assiut University — building autonomous systems, designing high-precision PCBs, and leading engineering teams. 7th globally at ICRA 2026 RoboRacer in the team's debut year.</p>
+      <p class="hero-bio">Electrical & Electronics Engineering student at Assiut University — I design and build hardware: custom PCBs taken from schematic to a working, hand-assembled board, with 90+ boards soldered so far. I also build the autonomous systems that placed our team 7th globally at ICRA 2026 RoboRacer in its debut year.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn-primary">Get In Touch</a>
         <a href="https://linkedin.com/in/seif-eldaby" target="_blank" rel="noopener noreferrer" class="btn-outline">LinkedIn ↗</a>
@@ -156,7 +158,7 @@
   <div class="section-wrap" style="padding-top: 1.5rem;">
     <div class="home-about reveal">
       <div class="home-about-eyebrow">Who I Am</div>
-      <p class="home-about-text">I'm an Electrical & Electronics Engineering student at Assiut University who genuinely loves the moment a circuit you designed on paper actually powers on. Over the last four years that's meant soldering 90+ PCBs by hand, teaching 150+ students how electronics work, and — most recently — building the autonomous stack that took my team to 7th place globally at ICRA 2026, in our very first year competing. I move comfortably between the hardware bench and the codebase: designing a board in Altium one day, debugging a ROS 2 SLAM pipeline the next.</p>
+      <p class="home-about-text">I'm an Electrical & Electronics Engineering student at Assiut University who genuinely loves the moment a circuit you designed on paper actually powers on. Hardware is where I'm strongest: I design PCBs in Altium, KiCAD and EasyEDA, hand-solder SMD parts, and debug a dead board until it works — 90+ PCBs assembled and counting, plus an ESC design for a flight controller. I've taught 150+ students how electronics work, and I also build the autonomous software stack that took my team to 7th place globally at ICRA 2026, in our very first year competing.</p>
       <a href="#about" class="home-about-link">Read my full story ↗</a>
     </div>
   </div>
@@ -199,11 +201,55 @@
      PAGE: ABOUT
 ══════════════════════════════════════ -->
 <div class="page" id="page-about">
+  <!-- Hardware Strengths -->
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">01</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">Where I'm Strongest</div>
+        <div class="section-title">Hardware Strengths</div>
+      </div>
+    </div>
+    <div class="services-grid strengths-grid">
+      <div class="service-card reveal reveal-delay-1" data-num="01">
+        <div class="service-icon">📐</div>
+        <div class="service-name">Schematic → Layout → Fabrication</div>
+        <div class="service-desc">Full PCB design flow in Altium, KiCAD and EasyEDA, finishing with clean manufacturing files that are ready to order.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2" data-num="02">
+        <div class="service-icon">🔥</div>
+        <div class="service-name">Hand Assembly & SMD Soldering</div>
+        <div class="service-desc">90+ PCBs assembled and soldered across large production runs, through-hole and SMD.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3" data-num="03">
+        <div class="service-icon">🔍</div>
+        <div class="service-name">Troubleshooting & Repair</div>
+        <div class="service-desc">Diagnosing faulty components and dead boards methodically, until the circuit works.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-1" data-num="04">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Power & Motor Control</div>
+        <div class="service-desc">Designed an ESC (Electronic Speed Controller) for a flight controller during my hardware internship at Spaceborn Autonomy.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2" data-num="05">
+        <div class="service-icon">🧪</div>
+        <div class="service-name">Prototype → Verify</div>
+        <div class="service-desc">Fast prototyping on Arduino, ESP32 and AVR, with circuits verified in LTSpice, Proteus and Multisim before they are built.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3" data-num="06">
+        <div class="service-icon">🛠️</div>
+        <div class="service-name">Mechanical CAD & Teaching</div>
+        <div class="service-desc">SolidWorks-certified (CSWA) for mechanical design, and I've taught Arduino and electronics to 150+ students.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
 
   <!-- Education -->
   <div class="section-wrap">
     <div class="section-header reveal">
-      <div class="section-num">01</div>
+      <div class="section-num">02</div>
       <div class="section-title-wrap">
         <div class="section-eyebrow">Academic</div>
         <div class="section-title">Education</div>
@@ -224,7 +270,7 @@
   <!-- Experience -->
   <div class="section-wrap">
     <div class="section-header reveal">
-      <div class="section-num">02</div>
+      <div class="section-num">03</div>
       <div class="section-title-wrap">
         <div class="section-eyebrow">Career</div>
         <div class="section-title">Experience</div>
@@ -335,7 +381,7 @@
   <!-- Skills -->
   <div class="section-wrap">
     <div class="section-header reveal">
-      <div class="section-num">03</div>
+      <div class="section-num">04</div>
       <div class="section-title-wrap">
         <div class="section-eyebrow">Toolkit</div>
         <div class="section-title">Skills</div>
@@ -937,6 +983,62 @@
 </div>
 
 <!-- ══════════════════════════════════════
+     PAGE: REVIEWS & RECOMMENDATIONS
+══════════════════════════════════════ -->
+<div class="page" id="page-reviews">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-num">★</div>
+      <div class="section-title-wrap">
+        <div class="section-eyebrow">What People Say</div>
+        <div class="section-title">Reviews & Recommendations</div>
+      </div>
+    </div>
+
+    <div class="rv-toolbar reveal">
+      <div class="rv-filters" id="rvFilters" role="tablist" aria-label="Filter">
+        <button type="button" class="rv-filter active" data-filter="all">All <span id="rvCountAll">0</span></button>
+        <button type="button" class="rv-filter" data-filter="recommendation">Recommendations <span id="rvCountRec">0</span></button>
+        <button type="button" class="rv-filter" data-filter="review">Reviews <span id="rvCountRev">0</span></button>
+      </div>
+      <div class="rv-avg" id="rvAvg" hidden></div>
+    </div>
+
+    <div class="rv-list" id="rvList" aria-live="polite">
+      <p class="rv-empty" id="rvLoading">Loading…</p>
+    </div>
+
+    <form class="contact-form rv-form reveal" id="reviewForm" autocomplete="off">
+      <div class="rv-form-title">Leave a review or recommendation</div>
+      <div class="rv-type" role="radiogroup" aria-label="Type">
+        <label class="rv-type-opt"><input type="radio" name="type" value="recommendation" checked><span>Recommendation <small>I've worked with Seif</small></span></label>
+        <label class="rv-type-opt"><input type="radio" name="type" value="review"><span>Review <small>Seif's work or services</small></span></label>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label for="rvName">Your name</label><input type="text" id="rvName" name="name" maxlength="60" placeholder="Your name" required /></div>
+        <div class="form-field"><label for="rvRole">Who you are</label><input type="text" id="rvRole" name="role" maxlength="80" placeholder="e.g. Teammate at Assiut Motorsport" required /></div>
+      </div>
+      <div class="form-field">
+        <label>Rating (optional)</label>
+        <div class="rv-stars-input" id="rvStarsInput" role="radiogroup" aria-label="Rating">
+          <button type="button" data-v="1" aria-label="1 star">★</button><button type="button" data-v="2" aria-label="2 stars">★</button><button type="button" data-v="3" aria-label="3 stars">★</button><button type="button" data-v="4" aria-label="4 stars">★</button><button type="button" data-v="5" aria-label="5 stars">★</button>
+        </div>
+      </div>
+      <div class="form-field"><label for="rvMessage">Your message</label><textarea id="rvMessage" name="message" rows="5" maxlength="600" minlength="10" placeholder="Tell people what it was like to work with Seif…" required></textarea><span class="rv-count" id="rvChars">0 / 600</span></div>
+      <input type="text" name="website" id="rvWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" class="rv-hp" />
+      <button type="submit" class="form-submit" id="rvSubmit">Post</button>
+      <p class="form-msg" id="rvMsg"></p>
+    </form>
+  </div>
+
+  <footer>
+    <div class="footer-logo-wrap"><img class="site-logo footer-logo" data-logo="assets/logo" alt="Seif Eldaby logo" decoding="async"></div>
+    <span>© 2026 Seif Eldaby</span>
+    <span>Electrical & Electronics Engineer · Assiut University</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
      PAGE: CONTACT
 ══════════════════════════════════════ -->
 <div class="page" id="page-contact">
@@ -979,6 +1081,6 @@
 <!-- Renders the first page of each PDF certificate straight onto the page (see script.js),
      so certificates show fully in-site with no click-through needed. Loaded lazily per-card. -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="script.js?v=20261031"></script>
+<script src="script.js?v=20261101"></script>
 </body>
 </html>
