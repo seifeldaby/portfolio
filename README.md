@@ -278,7 +278,7 @@ Use [squoosh.app](https://squoosh.app) or [tinypng.com](https://tinypng.com): re
 ## 10) Changing the Live Domain & Share Image
 
 ### The domain
-Once you have the final URL of the site (GitHub Pages URL or a custom domain), **search `index.html` for `seifeldaby.github.io`** — it appears in **7 places** that all need to match your real link:
+Once you have the final URL of the site (GitHub Pages URL or a custom domain), **search `index.html` for `seifeldaby.github.io`** — it appears in **6 places** that all need to match your real link:
 
 | Location | Why it matters |
 |---|---|
@@ -367,6 +367,7 @@ yoursite.com/#about
 yoursite.com/#services
 yoursite.com/#achievements
 yoursite.com/#portfolio
+yoursite.com/#reviews
 yoursite.com/#contact
 ```
 You can send any of these links to someone and it will open that exact page directly. Refreshing the page also keeps the visitor on the same page they were on.
@@ -413,8 +414,53 @@ You can send any of these links to someone and it will open that exact page dire
 - [ ] Big images were shrunk first (section 8)
 - [ ] All new links were tested and open correctly
 - [ ] If you changed `style.css` / `script.js`: bumped `?v=` in `index.html`, and uploaded all changed files together
-- [ ] If the domain changed, it was updated in all 7 places
+- [ ] If the domain changed, it was updated in all 6 places
 - [ ] Did a hard refresh and checked the result — on desktop **and** on a phone — before sharing the site
+
+---
+
+## 19) Reviews & Recommendations (Firebase)
+
+The **Reviews** page lets visitors read what people wrote and post their own **review** or **recommendation**. It uses Google's free **Firebase Firestore** database, because GitHub Pages has no server of its own.
+
+**One-time setup (about 10 minutes):**
+1. Go to [console.firebase.google.com](https://console.firebase.google.com), sign in with Google, **Add project** (any name, you can turn Analytics off).
+2. Left menu → **Build → Firestore Database → Create database**. Pick **Production mode** and the closest location (e.g. `eur3`).
+3. Open the **Rules** tab, replace everything with the rules below, and press **Publish**:
+```
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /reviews/{id} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasOnly(['name','role','type','rating','message','createdAt'])
+        && request.resource.data.name is string && request.resource.data.name.size() >= 2 && request.resource.data.name.size() <= 60
+        && request.resource.data.role in ['Project Supervisee','Student / Mentee','Project Partner','Client','Work Colleague','Manager / Supervisor','Team Leader','Other']
+        && request.resource.data.type in ['review','recommendation']
+        && request.resource.data.rating is int && request.resource.data.rating >= 0 && request.resource.data.rating <= 5
+        && request.resource.data.message is string && request.resource.data.message.size() >= 10 && request.resource.data.message.size() <= 1200
+        && request.resource.data.createdAt is timestamp
+        && request.resource.data.createdAt > request.time - duration.value(10, 'm')
+        && request.resource.data.createdAt < request.time + duration.value(10, 'm');
+      allow update, delete: if false;
+    }
+  }
+}
+```
+4. **Project settings** (gear icon) → **General**: copy the **Project ID**. Then **Your apps → Add app → Web (`</>`)**, register it, and copy the `apiKey` from the code shown.
+5. In `script.js`, search for `FIREBASE_PROJECT_ID` and paste both values:
+```js
+const FIREBASE_PROJECT_ID = 'your-project-id';
+const FIREBASE_API_KEY    = 'AIza...';
+```
+6. Bump `?v=` (section 16) and upload `script.js` + `index.html`.
+7. (Recommended) Google Cloud Console → **APIs & Services → Credentials** → your browser key → **Application restrictions: Websites** → add `https://seifeldaby.github.io/*`. The key is meant to be public, this just stops other sites from using it.
+
+**Moderating:** every post goes live immediately. To remove one (spam / inappropriate), open Firebase Console → **Firestore Database → Data → `reviews`** → open the document → **⋮ → Delete document**. Visitors can't edit or delete anything, and there are length limits, a hidden bot trap and a "1 post per minute, 3 per day" limit per browser.
+
+**Before Firebase is set up** the form still works: it sends the text to your email through Formspree (nothing appears publicly).
+
+**Recommendation vs. review:** the visitor picks the type; the filter buttons above the list separate them.
 
 ---
 ---
@@ -693,7 +739,7 @@ You can send any of these links to someone and it will open that exact page dire
 ## 10) إزاي تغيّر الدومين وصورة المشاركة
 
 ### الدومين
-لما يبقى عندك اللينك النهائي للموقع (رابط GitHub Pages أو دومين مخصص)، **دور في `index.html` على `seifeldaby.github.io`** — هتلاقيه في **7 أماكن** كلهم لازم يطابقوا لينكك الحقيقي:
+لما يبقى عندك اللينك النهائي للموقع (رابط GitHub Pages أو دومين مخصص)، **دور في `index.html` على `seifeldaby.github.io`** — هتلاقيه في **6 أماكن** كلهم لازم يطابقوا لينكك الحقيقي:
 
 | المكان | ليه مهم |
 |---|---|
@@ -782,6 +828,7 @@ yoursite.com/#about
 yoursite.com/#services
 yoursite.com/#achievements
 yoursite.com/#portfolio
+yoursite.com/#reviews
 yoursite.com/#contact
 ```
 تقدر تبعت أي لينك منهم لحد وهيفتحله الصفحة دي مباشرة. وكمان لو عملت ريفرش، الزائر بيفضل في نفس الصفحة اللي كان فيها.
@@ -828,5 +875,30 @@ yoursite.com/#contact
 - [ ] الصور الكبيرة اتصغّرت الأول (قسم 8)
 - [ ] كل اللينكات الجديدة اتجربت وبتفتح صح
 - [ ] لو غيّرت `style.css` / `script.js`: زوّدت `?v=` في `index.html`، ورفعت كل الملفات المتغيرة مع بعض
-- [ ] لو الدومين اتغيّر، اتحدّث في الـ 7 أماكن
+- [ ] لو الدومين اتغيّر، اتحدّث في الـ 6 أماكن
 - [ ] عملت hard refresh وشفت النتيجة — على الكمبيوتر **وعلى الموبايل** — قبل ما تشارك الموقع مع أي حد
+
+---
+
+## 19) الريفيوهات والتوصيات (Firebase)
+
+صفحة **Reviews** بتخلي الزائر يقرأ اللي الناس كتبوه ويكتب **ريفيو** أو **توصية** (Recommendation) بنفسه. بتستخدم قاعدة بيانات **Firebase Firestore** المجانية من جوجل، لأن GitHub Pages مفيهوش سيرفر.
+
+**إعداد لمرة واحدة (حوالي 10 دقائق):**
+1. ادخل [console.firebase.google.com](https://console.firebase.google.com) بحساب جوجل، وادوس **Add project** (أي اسم، وتقدر تقفل Analytics).
+2. من القائمة الشمال: **Build ← Firestore Database ← Create database**. اختار **Production mode** وأقرب موقع (مثلاً `eur3`).
+3. افتح تاب **Rules**، امسح كل اللي فيه، والصق القواعد اللي فوق (نفس الكود الإنجليزي في قسم 19 الإنجليزي)، وادوس **Publish**.
+4. **Project settings** (أيقونة الترس) ← **General**: انسخ **Project ID**. بعدين **Your apps ← Add app ← Web (`</>`)**، سجّل التطبيق وانسخ قيمة `apiKey` من الكود اللي هيظهر.
+5. في `script.js` دور على `FIREBASE_PROJECT_ID` والصق القيمتين:
+```js
+const FIREBASE_PROJECT_ID = 'your-project-id';
+const FIREBASE_API_KEY    = 'AIza...';
+```
+6. زوّد رقم `?v=` (قسم 16) وارفع `script.js` و`index.html`.
+7. (مستحسن) Google Cloud Console ← **APIs & Services ← Credentials** ← مفتاح المتصفح ← **Application restrictions: Websites** ← ضيف `https://seifeldaby.github.io/*`. المفتاح ده معمول يبقى علني، والتقييد بيمنع مواقع تانية تستخدمه.
+
+**المراجعة والحذف:** أي حاجة بتتنشر فورًا. لو عايز تمسح واحدة (سبام أو كلام مسيء): Firebase Console ← **Firestore Database ← Data ← `reviews`** ← افتح الوثيقة ← **⋮ ← Delete document**. الزائر مبيقدرش يعدّل أو يمسح أي حاجة، وفيه حد أقصى للطول، وفخ مخفي للبوتات، وحد "رسالة كل دقيقة و3 في اليوم" لكل متصفح.
+
+**قبل ما تظبط Firebase:** الفورم بيشتغل برضه، وبيبعت النص على إيميلك عن طريق Formspree (ومفيش حاجة بتظهر للزوار).
+
+**التوصية والريفيو:** الزائر بيختار النوع، وأزرار الفلتر فوق القائمة بتفصل بينهم.
