@@ -394,8 +394,8 @@ document.getElementById('contactForm').addEventListener('submit', async function
 // Firebase Console → Project settings → General → "Web API Key" and "Project ID".
 // While they still say 'YOUR_...', the form falls back to sending the text to your email
 // (via Formspree) and nothing is shown publicly.
-const FIREBASE_PROJECT_ID = 'seif-portfolio-review';
-const FIREBASE_API_KEY    = 'AIzaSyCZ3DbPaYuM26H8pTGeJ8Iba4RZaz88Reo';
+const FIREBASE_PROJECT_ID = 'YOUR_PROJECT_ID';
+const FIREBASE_API_KEY    = 'YOUR_WEB_API_KEY';
 
 (function () {
   const list = document.getElementById('rvList');
@@ -489,7 +489,7 @@ const FIREBASE_API_KEY    = 'AIzaSyCZ3DbPaYuM26H8pTGeJ8Iba4RZaz88Reo';
   stars.addEventListener('mouseover', e => { const b = e.target.closest('button'); if (b) paint(+b.dataset.v); });
   stars.addEventListener('mouseleave', () => paint(rating));
 
-  $('rvMessage').addEventListener('input', e => { $('rvChars').textContent = e.target.value.length + ' / 600'; });
+  $('rvMessage').addEventListener('input', e => { $('rvChars').textContent = e.target.value.length + ' / 1200'; });
 
   // ---- submit ----
   form.addEventListener('submit', async e => {
@@ -504,13 +504,15 @@ const FIREBASE_API_KEY    = 'AIzaSyCZ3DbPaYuM26H8pTGeJ8Iba4RZaz88Reo';
     if (log.length && Date.now() - log[log.length - 1] < 60000) { msg.textContent = '⚠ Please wait a minute before posting again.'; msg.className = 'form-msg error'; return; }
     if (log.length >= 3) { msg.textContent = '⚠ Thanks — you have reached today\'s limit.'; msg.className = 'form-msg error'; return; }
 
+    const ROLES = ['Project Supervisee','Student / Mentee','Project Partner','Client','Work Colleague','Manager / Supervisor','Team Leader','Other'];
     const data = {
       name: form.name.value.trim().slice(0, 60),
       role: form.role.value.trim().slice(0, 80),
       type: form.type.value === 'review' ? 'review' : 'recommendation',
-      message: form.message.value.trim().slice(0, 600),
+      message: form.message.value.trim().slice(0, 1200),
       rating
     };
+    if (!ROLES.includes(data.role)) { msg.textContent = '⚠ Please choose your relationship to Seif.'; msg.className = 'form-msg error'; return; }
     if (data.name.length < 2 || data.role.length < 2 || data.message.length < 10) { msg.textContent = '⚠ Please fill in every field (message: at least 10 characters).'; msg.className = 'form-msg error'; return; }
 
     btn.disabled = true; btn.textContent = 'Posting…';
@@ -538,7 +540,7 @@ const FIREBASE_API_KEY    = 'AIzaSyCZ3DbPaYuM26H8pTGeJ8Iba4RZaz88Reo';
       }
       msg.className = 'form-msg success';
       log.push(Date.now()); try { localStorage.setItem('rvPosts', JSON.stringify(log)); } catch (x) {}
-      form.reset(); rating = 0; paint(0); $('rvChars').textContent = '0 / 600';
+      form.reset(); rating = 0; paint(0); $('rvChars').textContent = '0 / 1200';
     } catch (err) {
       msg.textContent = '⚠ Could not post right now. Please try again in a moment.';
       msg.className = 'form-msg error';
