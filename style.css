@@ -932,3 +932,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .strengths-grid { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 900px) { .strengths-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .strengths-grid { grid-template-columns: 1fr; } }
+
+.form-field select {
+  background: var(--dark3); border: 0.5px solid var(--border); color: var(--text);
+  padding: 0.8rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; outline: none; width: 100%;
+  transition: border-color 0.2s; cursor: pointer;
+}
+.form-field select:focus { border-color: var(--gold); }
+.form-field select:invalid { color: var(--text-muted); }
+.rv-text { white-space: pre-line; }
