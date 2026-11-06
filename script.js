@@ -394,16 +394,17 @@ document.getElementById('contactForm').addEventListener('submit', async function
 // Firebase Console → Project settings → General → "Web API Key" and "Project ID".
 // While they still say 'YOUR_...', the form falls back to sending the text to your email
 // (via Formspree) and nothing is shown publicly.
-const FIREBASE_PROJECT_ID = 'YOUR_PROJECT_ID';
-const FIREBASE_API_KEY    = 'YOUR_WEB_API_KEY';
+// The two values now live in firebase-config.js (loaded before this file), so updating script.js never erases them.
+const FB_ID  = (typeof FIREBASE_PROJECT_ID !== 'undefined') ? FIREBASE_PROJECT_ID : '';
+const FB_KEY = (typeof FIREBASE_API_KEY !== 'undefined') ? FIREBASE_API_KEY : '';
 
 (function () {
   const list = document.getElementById('rvList');
   const form = document.getElementById('reviewForm');
   if (!list || !form) return;
 
-  const configured = FIREBASE_PROJECT_ID !== 'YOUR_PROJECT_ID' && FIREBASE_API_KEY !== 'YOUR_WEB_API_KEY';
-  const BASE = `https://firestore.googleapis.com/v1/projects/${FIREBASE_PROJECT_ID}/databases/(default)/documents`;
+  const configured = !!FB_ID && !!FB_KEY && FB_KEY !== 'PASTE_YOUR_API_KEY_HERE';
+  const BASE = `https://firestore.googleapis.com/v1/projects/${FB_ID}/databases/(default)/documents`;
   let items = [], filter = 'all', loaded = false, rating = 0;
 
   const $ = id => document.getElementById(id);
@@ -454,7 +455,7 @@ const FIREBASE_API_KEY    = 'YOUR_WEB_API_KEY';
     if (loaded && !force) return;
     if (!configured) { loaded = true; render(); return; }
     try {
-      const res = await fetch(`${BASE}:runQuery?key=${FIREBASE_API_KEY}`, {
+      const res = await fetch(`${BASE}:runQuery?key=${FB_KEY}`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ structuredQuery: {
           from: [{ collectionId: 'reviews' }],
@@ -518,7 +519,7 @@ const FIREBASE_API_KEY    = 'YOUR_WEB_API_KEY';
     btn.disabled = true; btn.textContent = 'Posting…';
     try {
       if (configured) {
-        const res = await fetch(`${BASE}/reviews?key=${FIREBASE_API_KEY}`, {
+        const res = await fetch(`${BASE}/reviews?key=${FB_KEY}`, {
           method: 'POST', headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ fields: {
             name: { stringValue: data.name }, role: { stringValue: data.role },
