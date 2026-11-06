@@ -1016,7 +1016,17 @@
       </div>
       <div class="form-row">
         <div class="form-field"><label for="rvName">Your name</label><input type="text" id="rvName" name="name" maxlength="60" placeholder="Your name" required /></div>
-        <div class="form-field"><label for="rvRole">Who you are</label><input type="text" id="rvRole" name="role" maxlength="80" placeholder="e.g. Teammate at Assiut Motorsport" required /></div>
+        <div class="form-field"><label for="rvRole">Your relationship to Seif</label><select id="rvRole" name="role" required>
+          <option value="" disabled selected>Choose one…</option>
+          <option>Project Supervisee</option>
+          <option>Student / Mentee</option>
+          <option>Project Partner</option>
+          <option>Client</option>
+          <option>Work Colleague</option>
+          <option>Manager / Supervisor</option>
+          <option>Team Leader</option>
+          <option>Other</option>
+        </select></div>
       </div>
       <div class="form-field">
         <label>Rating (optional)</label>
@@ -1024,7 +1034,7 @@
           <button type="button" data-v="1" aria-label="1 star">★</button><button type="button" data-v="2" aria-label="2 stars">★</button><button type="button" data-v="3" aria-label="3 stars">★</button><button type="button" data-v="4" aria-label="4 stars">★</button><button type="button" data-v="5" aria-label="5 stars">★</button>
         </div>
       </div>
-      <div class="form-field"><label for="rvMessage">Your message</label><textarea id="rvMessage" name="message" rows="5" maxlength="600" minlength="10" placeholder="Tell people what it was like to work with Seif…" required></textarea><span class="rv-count" id="rvChars">0 / 600</span></div>
+      <div class="form-field"><label for="rvMessage">Your message</label><textarea id="rvMessage" name="message" rows="5" maxlength="1200" minlength="10" placeholder="Tell people what it was like to work with Seif…" required></textarea><span class="rv-count" id="rvChars">0 / 1200</span></div>
       <input type="text" name="website" id="rvWebsite" tabindex="-1" autocomplete="off" aria-hidden="true" class="rv-hp" />
       <button type="submit" class="form-submit" id="rvSubmit">Post</button>
       <p class="form-msg" id="rvMsg"></p>
